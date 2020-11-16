@@ -1,0 +1,20 @@
+.login{
+  display: block;
+
+}
+.form, button, input{
+  display: block;
+
+
+}
+input[type="text"], button {
+
+  display: block;
+  padding: 2%;
+  margin: 5%;
+}
+input[type="text"], button {
+  display: block;
+  padding: 2%;
+  margin: 5%;
+}
