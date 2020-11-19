@@ -6,7 +6,7 @@ using System.Web;
 namespace BilleteraVirtual.Models
 {
  
-    public class cuentaDestino
+    public class CuentaDestino
     {
         private int id;
         private String cbu;
@@ -15,7 +15,7 @@ namespace BilleteraVirtual.Models
         private String aliasCuentaDestino;
 
 
-        public cuentaDestino()
+        public CuentaDestino()
         {
 
         }
@@ -24,5 +24,6 @@ namespace BilleteraVirtual.Models
         public string Cbu { get => cbu; set => cbu = value; }
         public string Cuil { get => cuil; set => cuil = value; }
         public string TidoDeCuenta { get => tidoDeCuenta; set => tidoDeCuenta = value; }
+        public string AliasCuentaDestino { get => aliasCuentaDestino; set => aliasCuentaDestino = value; }
     }
 }
