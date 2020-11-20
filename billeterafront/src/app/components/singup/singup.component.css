@@ -1,12 +1,24 @@
-.login{
+
+
+
+.singup{
   width: 100%;
   display: block;
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+#register{
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
 
 
 }
 
-.login button{
+.form button{
   margin-left: auto;
   margin-right:auto;
 display: block;
@@ -19,7 +31,7 @@ margin-bottom: 2%;
 box-shadow: 0 4px 16px 0 rgba(158, 158, 158, 0.25);
 background-image: linear-gradient(to top, #012169, #5489ff);
 }
-.login input{
+.form input{
   display: block;
   width: 327px;
   height: 60px;
@@ -36,4 +48,7 @@ h1, p{
   display: block;
   text-align: center;
 
+}
+#name{
+  color:red;
 }

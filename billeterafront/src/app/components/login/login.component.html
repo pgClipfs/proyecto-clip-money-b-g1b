@@ -1,10 +1,9 @@
-
 <div class="login">
   <h1>Hola de nuevo !</h1>
-<form class="form">
-  <input type="text" placeholder="usuario"/>
-  <input type="text" placeholder="password"/>
-  <button class="btn btn-primary">Ingresar</button>
-</form>
+<form id="login-form" class="form" (submit)="submit(nickname, password)">
+  <input type="text" input id="name" type="name" placeholder="usuario" #nickname/>
+  <input type="text" placeholder="password" type="password" #password/>
+  <button class="btn btn-primary mt-3 ">Ingresar</button>
+  <p>¿Olvidaste tu contraseña?</p>
+</form >
 </div>
-
