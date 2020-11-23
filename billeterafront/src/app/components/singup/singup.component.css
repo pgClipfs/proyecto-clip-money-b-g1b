@@ -148,7 +148,7 @@ img.logo {
     display:flex;
   }
   .form{
-    width: 80%;
+    width: 70%;
   }
 }
 @media (min-width: 992px) {

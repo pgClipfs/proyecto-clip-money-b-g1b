@@ -11,7 +11,7 @@ export class SingupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  submit(){
+  submit(usuario: HTMLInputElement, password: HTMLInputElement,passwordrepetead:HTMLInputElement, email:HTMLInputElement){
     alert("funcion crear usuario in progress");
   }
 
