@@ -1,5 +1,5 @@
 .container{
-  padding: 1%;
+  padding: 3%;
   align-items: center;
   display: block;
 }
@@ -36,7 +36,7 @@ background-image: linear-gradient(to top, #012169d1, #5489ff);
   height: 50px;
   margin-left: auto;
   margin-right:auto;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   border-radius: 6px;
   border: solid 1px #f1f1f1;
   background-color: #fafafa;
@@ -143,7 +143,7 @@ img.logo {
   line-height: 1.71;
   letter-spacing: normal;
   color: #2f2f2f;
-  text-align: left;
+  text-align: center;
 }
 @media (min-width: 576px) {
   .login-segment{
@@ -151,6 +151,7 @@ img.logo {
     margin-left: auto;
     margin-right:auto;
   }
+
 
 }
 @media (min-width: 992px) {
@@ -161,6 +162,9 @@ img.logo {
   }
   .sign-up-segment{
     display: flex;
+  }
+  .text{
+    text-align: left;
   }
  }
  @media (min-width: 1200px) {

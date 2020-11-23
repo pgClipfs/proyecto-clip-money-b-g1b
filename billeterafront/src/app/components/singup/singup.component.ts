@@ -11,5 +11,8 @@ export class SingupComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  submit(){
+    alert("funcion crear usuario in progress");
+  }
 
 }
