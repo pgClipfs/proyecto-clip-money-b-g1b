@@ -11,5 +11,8 @@ export class ResetpasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onsubmit(email: HTMLInputElement){
+
+  }
 
 }

@@ -15,8 +15,8 @@
   margin : 1%;
   display: block;
 }
-.register-segment button{
-  color:#fff;
+button.btn.btn-primary.mt-3 {
+  color: #fff;
 }
 
 .register-segment button{
@@ -30,8 +30,10 @@ border-radius: 12px;
 margin-bottom: 4%;
 box-shadow: 0 4px 16px 0 rgba(158, 158, 158, 0.25);
 background-image: linear-gradient(to top, #012169d1, #5489ff);
+
 }
-.register-segment input
+.register-segment input,
+.register-segment button
 {
   width: 90%;
   height: 50px;
@@ -65,9 +67,7 @@ background-image: linear-gradient(to top, #012169d1, #5489ff);
   color: #2f2f2f;
 }
 
-button.btn.btn-primary.mt-3 {
-  color: #fff;
-}
+
 img.logo {
   width: 30%;
   display: block;
@@ -102,7 +102,6 @@ img.logo {
   margin-bottom: 2%;
   font-family:'Nunito Sans', sans-serif;
   font-size: 16px;
-  /* font-weight: bold; */
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
