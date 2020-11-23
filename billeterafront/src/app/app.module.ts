@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
     NavbarComponent,
     SingupComponent,
     MyaccountComponent,
+    ResetpasswordComponent,
 
   ],
   imports: [

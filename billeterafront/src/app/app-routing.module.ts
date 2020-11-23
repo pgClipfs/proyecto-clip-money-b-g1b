@@ -1,3 +1,4 @@
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { HomeComponent } from './components/home/home.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { SingupComponent } from './components/singup/singup.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'ingresar', component: LoginComponent},
     {path: 'registrarse', component: SingupComponent},
     {path: 'micuenta', component: MyaccountComponent},
-    {path: '**', redirectTo: ''}
+    {path: 'resetpassword', component: ResetpasswordComponent},
+    {path: '**', redirectTo: ''},
 ];
 
 @NgModule({

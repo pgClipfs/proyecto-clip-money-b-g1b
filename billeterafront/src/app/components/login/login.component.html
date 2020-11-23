@@ -1,9 +1,20 @@
-<div class="login">
-  <h1>Hola de nuevo !</h1>
-<form id="login-form" class="form" (submit)="submit(nickname, password)">
-  <input type="text" input id="name" type="name" placeholder="usuario" #nickname/>
-  <input type="text" placeholder="password" type="password" #password/>
-  <button class="btn btn-primary mt-3 ">Ingresar</button>
-  <p>¿Olvidaste tu contraseña?</p>
-</form >
+<div class="container">
+  <div class="login-segment">
+
+   <img class="logo" src="https://www.flaticon.es/svg/static/icons/svg/1272/1272081.svg" alt="noseve"/>
+    <h1 class="page-title">Hola de nuevo!</h1>
+
+
+    <form id="login-form" class="form" (submit)="submit(nickname, password)">
+      <input type="text" input id="name" type="name" placeholder="usuario" #nickname/>
+      <input type="text" placeholder="password" type="password" #password/>
+      <button class="btn btn-primary mt-3 ">Ingresar</button>
+      <a href="/resetpassword"><p class="link-text">¿Olvidaste tu contraseña?</p></a>
+      <div class="sign-up-segment">
+        <p class="text">No tenés una cuenta?</p><a href="/registrarse" class="text-style-1">Registrate</a>
+      </div>
+    </form >
+  </div>
 </div>
+
+

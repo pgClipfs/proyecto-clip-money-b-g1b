@@ -2,6 +2,7 @@ import { Usuario } from './../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,9 +11,16 @@ import { Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   userArray:Usuario [] = [
-    {id: 1, usuario:"admin", password:"password123"},
-    {id: 2, usuario:"admin1", password:"password124"},
-    {id: 3, usuario:"admin2", password:"password125"}
+    {id: 1, usuario:"felisa", password:"felisa123"},
+    {id: 2, usuario:"felipe", password:"felipe123"},
+    {id: 3, usuario:"federico", password:"federico123"},
+    {id: 4, usuario:"greta", password:"greta123"},
+    {id: 5, usuario:"markus", password:"markus123"},
+    {id: 6, usuario:"ezequiel", password:"ezequiel123"},
+    {id: 7, usuario:"gimena", password:"gimena123"},
+    {id: 8, usuario:"gonzalo", password:"gonzalo123"},
+    {id: 9, usuario:"franciso", password:"francisco123"},
+
     ]
 
   constructor(private router: Router) { }
@@ -25,7 +33,6 @@ export class LoginComponent implements OnInit {
       if(this.userArray[i].usuario == usuario.value && this.userArray[i].password == password.value){
         this.router.navigate(['/micuenta']);
     }
+  }
     }
-    }
-
 }
