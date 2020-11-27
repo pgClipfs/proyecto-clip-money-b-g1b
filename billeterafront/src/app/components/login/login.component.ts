@@ -10,6 +10,7 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+
   userArray:Usuario [] = [
     {id: 1, usuario:"felisa", password:"felisa123"},
     {id: 2, usuario:"felipe", password:"felipe123"},
@@ -23,16 +24,32 @@ export class LoginComponent implements OnInit {
 
     ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+   }
 
   ngOnInit(): void {
+
   }
 
   submit(usuario: HTMLInputElement, password: HTMLInputElement){
+
+    let centinela = false ;
+    let currentUser = usuario.value;
+    let currentPassword = password.value;
     for (let i = 0; i < this.userArray.length; i++){
-      if(this.userArray[i].usuario == usuario.value && this.userArray[i].password == password.value){
-        this.router.navigate(['/micuenta']);
-    }
+      if(this.userArray[i].usuario == currentUser && this.userArray[i].password == currentPassword){
+        centinela = true;
   }
+}
+    if(centinela){
+      this.router.navigate(['/micuenta']);
+    }
+    else{
+      alert(" usuario o contraseña incorrecta");
+
+    }
+    //blanquear input researt
+
     }
 }

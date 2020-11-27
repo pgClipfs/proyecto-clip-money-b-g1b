@@ -1,18 +1,20 @@
 .container{
-  padding: 3%;
+  padding: 1%;
   align-items: center;
   display: block;
 }
 .login-segment {
-  width: 90%;
+  width: 100%;
   height: auto;
-  padding: 10px 23px 30px 24px;
   padding: 2%;
   background-color: #ffffff;
   margin-left: auto;
   margin-right:auto;
   text-align: center;
   margin : 1%;
+}
+.login-segment:hover{
+  filter:brightness(105%);
 }
 .login-segment button{
   color:#fff;
@@ -22,7 +24,7 @@
 margin-left: auto;
 margin-right:auto;
 display: block;
-width: 90%;
+width: 100%;
 height: 50px;
 color:#fff;
 border-radius: 12px;
@@ -53,7 +55,7 @@ background-image: linear-gradient(to top, #012169d1, #5489ff);
 .page-title{
   margin-left: auto;
   margin-right:auto;
-  padding-bottom: 7%;
+  padding-bottom: 4%;
   font-family:'Nunito Sans', sans-serif;
   font-size: 42px;
   font-weight: 800;
@@ -82,14 +84,25 @@ background-image: linear-gradient(to top, #012169d1, #5489ff);
 }
 button.btn.btn-primary.mt-3 {
   color: #fff;
+  margin-bottom: 5rem
 }
-img.logo {
+.logo {
+  display: none;
   width: 30%;
   display: block;
   align-items: center;
   margin: auto;
   padding: 3%;
   opacity: 0.7;
+}
+
+img#logoBilletera {
+    display: none;
+    width: 30%;
+    align-items: center;
+    margin: auto;
+    padding: 3%;
+    opacity: 0.7;
 }
 .text-style-1{
   width: 100%;
@@ -108,22 +121,13 @@ img.logo {
 
 }
 .sign-up-segment{
-  display:block;
-  width: 90%;
-  height: 60px;
+  width: 80%;
+  display: block;
   margin-left: auto;
   margin-right:auto;
-  text-align: center;
-  margin-bottom: 2%;
-  font-family:'Nunito Sans', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
 
 }
+
 .sign-up-segment a{
   cursor: pointer;
 }
@@ -132,6 +136,7 @@ img.logo {
 }
 
 .text{
+  display: inline;
   width: 100%;
   margin-left: auto;
   margin-right:auto;
@@ -144,7 +149,9 @@ img.logo {
   letter-spacing: normal;
   color: #2f2f2f;
   text-align: center;
+  padding-right: 2%;
 }
+
 @media (min-width: 576px) {
   .login-segment{
     width: 70%;
@@ -160,11 +167,19 @@ img.logo {
     margin-left: auto;
     margin-right:auto;
   }
-  .sign-up-segment{
-    display: flex;
-  }
   .text{
     text-align: left;
+  }
+  img#logoBilletera {
+    display: block;
+
+}
+button.btn.btn-primary.mt-3 {
+  margin-bottom: 0.5rem;
+}
+
+
+  @media(max-width: 992px){
   }
  }
  @media (min-width: 1200px) {
@@ -172,6 +187,6 @@ img.logo {
     width: 40%;
     margin-left: auto;
     margin-right:auto;
-  }
  }
 
+ }

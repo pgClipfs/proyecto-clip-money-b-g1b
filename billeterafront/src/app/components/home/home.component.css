@@ -1,4 +1,6 @@
-.home{
+.container{
+  padding: 1%;
+  align-items: center;
   display: block;
-  text-align: center;
 }
+

@@ -1,17 +1,19 @@
 <div class="container">
   <div class="register-segment">
   <div class="register-img">
-    <img class="logo" src="https://www.flaticon.es/svg/static/icons/svg/1272/1272081.svg" alt="noseve"/>
+    <img class="logo"  id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg" alt="noseve"/>
     <h1 class="page-title">Crea tu cuenta!</h1>
   </div>
   <form id="register-form" class="form" (submit)="submit(nickname, email, password, passwordrepetead)">
-      <input type="text" input id="name" type="name" placeholder="usuario" #nickname/>
-      <input type="email" placeholder="Email"  #email/>
-      <input  placeholder="Contaseña" type="password" #password/>
-      <input  placeholder="Repite la  contraseña" type="password" #passwordrepetead/>
-      <button class="btn btn-primary mt-3 ">Crear cuenta</button>
-      <div class="register-segment">
-        <p class="text">Ya tienes una?</p><a href="/ingresar" class="text-style-1">Ingresar</a>
+      <input type="text" id="name" type="name" placeholder="usuario" #nickname required/>
+      <input type="email" placeholder="Email"  #email required/>
+      <input  placeholder="Contaseña"  minwidth="8" type="password" #password required/>
+      <input  placeholder="Repite la  contraseña" type="password" #passwordrepetead required/>
+      <button class="btn btn-primary mt-3">Crear cuenta</button>
+      <!-- <button class="btn btn-primary mt-3" id="iracuenta" (onClick)="onClick()">Crear cuenta</button> -->
+
+      <div class="login-segment">
+        <p class="text">¿Ya tienes una?</p><a href="/ingresar" class="text-style-1">Ingresar</a>
       </div>
   </form >
   </div>
@@ -19,7 +21,7 @@
 
 
 
-
+<!-- //(onChange)="validatePassword(password)" -->
 
 
 
