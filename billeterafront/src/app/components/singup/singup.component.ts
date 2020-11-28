@@ -11,32 +11,35 @@ import { Router} from '@angular/router';
 })
 export class SingupComponent implements OnInit {
   userArray:Usuario [] = [
-    {id: 1, usuario:"felisa", password:"felisa123"},
-    {id: 2, usuario:"felipe", password:"felipe123"},
-    {id: 3, usuario:"federico", password:"federico123"},
-    {id: 4, usuario:"greta", password:"greta123"},
-    {id: 5, usuario:"markus", password:"markus123"},
-    {id: 6, usuario:"ezequiel", password:"ezequiel123"},
-    {id: 7, usuario:"gimena", password:"gimena123"},
-    {id: 8, usuario:"gonzalo", password:"gonzalo123"},
-    {id: 9, usuario:"franciso", password:"francisco123"},
+    {id: 1, email: "felisabarberag@gmail.com", password:"felisa123"},
+    {id: 2, email: "felipeilla@hotmail.com",  password:"felipe123"},
+    {id: 3, email: "federico.kiwam@gmail.com", password:"federico123"},
+    {id: 4, email: "greta.pereda@gmail.com", password:"greta123"},
+    {id: 5, email: "eze.heredia023@gmail.com",  password:"markus123"},
+    {id: 6, email: "eze.aballay@gmail.com", password:"ezequiel123"},
+    {id: 7, email: "gimena.befer@gmail.com" , password:"gimena123"},
+    {id: 8, email: "gonzalo5aguirre9@gmail.com", password:"gonzalo123"},
+    {id: 9, email: "fran.ayrolo@gmail.com", password:"francisco123"},
+
 
     ]
-
-
-
-
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  submit(usuario: HTMLInputElement, password: HTMLInputElement,passwordrepetead:HTMLInputElement, email:HTMLInputElement){
+  submit( email:HTMLInputElement, password: HTMLInputElement,passwordrepetead:HTMLInputElement){
+    let currentEmail = email.value;
+    let currentPassword = password.value;
     for (let i = 0; i < this.userArray.length; i++){
-       if(this.userArray[i].usuario == usuario.value){
-        alert("Nombre de usuario utilizado, prueba con otro nombre de usuario");
+       if(this.userArray[i].email == currentEmail){
+        alert("Existe un usuario registrado con esta cuenta de correo");
+        console.log(currentEmail);
        }
-       else{
+       else if(currentPassword == passwordrepetead.value){
+         alert("las contraseñas coinciden")
+
+         //validacion de contraseña
        }
       }
     }

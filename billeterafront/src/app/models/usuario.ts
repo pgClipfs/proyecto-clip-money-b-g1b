@@ -1,7 +1,8 @@
 export class Usuario {
   id: number;
-  usuario: string;
+  email: string;
   password: string;
+  //copiar la ta
 
 
 }

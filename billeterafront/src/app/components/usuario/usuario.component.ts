@@ -10,14 +10,13 @@ import { Usuario}  from '../../models/usuario';
 export class UsuarioComponent implements OnInit {
   public usuarios: Usuario[];
 
-  constructor() { }
-  //private UsuarioService: UsuarioService
-  //linea 14 : dentro del parametro del constructor
+  constructor(private usuarioService : UsuarioService) { }
+
 
   ngOnInit(): void {
-    // this.UsuarioService.getPersona().subscribe(resp =>{
-    //   console.log(resp);
-    // })
+    this.usuarioService.getUsuarios().subscribe(resp =>{
+      console.log(resp);
+    })
 
   }
   login()

@@ -12,15 +12,15 @@ export class LoginComponent implements OnInit {
 
 
   userArray:Usuario [] = [
-    {id: 1, usuario:"felisa", password:"felisa123"},
-    {id: 2, usuario:"felipe", password:"felipe123"},
-    {id: 3, usuario:"federico", password:"federico123"},
-    {id: 4, usuario:"greta", password:"greta123"},
-    {id: 5, usuario:"markus", password:"markus123"},
-    {id: 6, usuario:"ezequiel", password:"ezequiel123"},
-    {id: 7, usuario:"gimena", password:"gimena123"},
-    {id: 8, usuario:"gonzalo", password:"gonzalo123"},
-    {id: 9, usuario:"franciso", password:"francisco123"},
+    {id: 1, email: "felisabarberag@gmail.com", password:"felisa123"},
+    {id: 2, email: "felipeilla@hotmail.com",  password:"felipe123"},
+    {id: 3, email: "federico.kiwam@gmail.com", password:"federico123"},
+    {id: 4, email: "greta.pereda@gmail.com", password:"greta123"},
+    {id: 5, email: "eze.heredia023@gmail.com",  password:"markus123"},
+    {id: 6, email: "eze.aballay@gmail.com", password:"ezequiel123"},
+    {id: 7, email: "gimena.befer@gmail.com" , password:"gimena123"},
+    {id: 8, email: "gonzalo5aguirre9@gmail.com", password:"gonzalo123"},
+    {id: 9, email: "fran.ayrolo@gmail.com", password:"francisco123"},
 
     ]
 
@@ -32,17 +32,17 @@ export class LoginComponent implements OnInit {
 
   }
 
-  submit(usuario: HTMLInputElement, password: HTMLInputElement){
+  submit( email: HTMLInputElement, password: HTMLInputElement){
 
-    let centinela = false ;
-    let currentUser = usuario.value;
+    let isActive = false ;
+    let currentEmail = email.value;
     let currentPassword = password.value;
     for (let i = 0; i < this.userArray.length; i++){
-      if(this.userArray[i].usuario == currentUser && this.userArray[i].password == currentPassword){
-        centinela = true;
+      if(this.userArray[i].email == currentEmail && this.userArray[i].password == currentPassword){
+        isActive = true;
   }
 }
-    if(centinela){
+    if(isActive){
       this.router.navigate(['/micuenta']);
     }
     else{

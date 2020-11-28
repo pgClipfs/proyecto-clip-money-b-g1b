@@ -11,5 +11,8 @@ export class MyaccountComponent implements OnInit {
 
   ngOnInit(): void {
   }
+// submit(email: HTMLInputElement, password: HTMLInputElement, usuario:HTMLInputElement, name:HTMLInputElement, surname:HTMLInputElement, dni:HTMLInputElement, date:HTMLInputElement, cuilcuit:HTMLInputElement){
+ //en html(submit)="submit( email, password, usuario, name, surname, dni, date, cuilcuit)"
+//   }
 
 }
