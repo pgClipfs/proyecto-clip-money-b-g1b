@@ -1,27 +1,26 @@
 <div class="container">
+  <div class="register-segment">
   <div class="register-img">
-    <!-- <img class="logo"  id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg" alt="noseve"/> -->
     <h1 class="page-title" id="title-myaccount">Gracias por elegirnos</h1>
     <p class="text-left"></p></div>
-  <div class="register-segment">
 
       <form id="register-form" class="form" >
         <div class="segment">
           <input type="text" id="usuario" placeholder="Usuario" #usuario required>
-          <input  placeholder="Contaseña" type="password" maxlength = "8" #password required/>
+          <input  placeholder="Contraseña" type="password" maxlength = "8" #password required/>
           <input type="email"  id="email"  placeholder="Email" #email required/>
           <input type="text" id="name" placeholder="Nombre" #name required>
           <input type="text" id="surname" placeholder="Apellido" #surname required>
         </div>
         <div class="segment">
-          <input type="text" id="dni" placeholder="dni" maxlength = "8"  pattern = "[0-9]*" #dni required>
+
+          <input type="text" name="dni" pattern="[0-9]+" placeholder="dni" required="required" maxlength = "8"  required>
           <input type="Date" id ="date" placeholder="Fecha de Nacimiento" #date required>
           <input type="text" id="cuil-cuit" placeholder="Cuit - Cuil " maxlength="11"  pattern = "[0-9] *" #cuilcuit  required>
           <button class="btn btn-primary mt-3">Enviar</button>
         </div>
       </form>
     </div>
-
     </div>
 
 <!-- formulario con todos los datos  -->

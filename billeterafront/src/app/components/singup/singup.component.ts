@@ -10,6 +10,7 @@ import { Router} from '@angular/router';
   styleUrls: ['./singup.component.css']
 })
 export class SingupComponent implements OnInit {
+
   userArray:Usuario [] = [
     {id: 1, email: "felisabarberag@gmail.com", password:"felisa123"},
     {id: 2, email: "felipeilla@hotmail.com",  password:"felipe123"},
