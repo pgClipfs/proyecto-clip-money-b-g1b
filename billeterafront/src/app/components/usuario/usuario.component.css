@@ -1,0 +1,39 @@
+.login{
+  display: block;
+
+}
+.form, button, input{
+  display: block;
+
+
+}
+input[type="text"], button {
+
+  display: block;
+  padding: 2%;
+  margin: 5%;
+}
+input[type="text"], button {
+  width: 327px;
+  height: 60px;
+  margin: 16px 0 15px 1px;
+  padding: 19px 226px 19px 19px;
+  border-radius: 8px;
+  border: solid 1px #f1f1f1;
+  background-color: #fafafa;
+}
+
+button{
+  width: 327px;
+  height: 60px;
+  margin: 15px 1px 26px 0;
+  padding: 19px 133px 19px 132px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px 0 rgba(158, 158, 158, 0.25);
+  background-image: linear-gradient(to top, #012169, #5489ff);
+}
+button.btn.btn-info.mt-3 {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}

@@ -1,0 +1,147 @@
+.container{
+  padding: 3%;
+  align-items: center;
+  display: block;
+}
+.register-segment {
+  width: 100%;
+  height: auto;
+  padding: 10px 23px 30px 24px;
+  padding: 2%;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right:auto;
+  text-align: center;
+  margin : 1%;
+  display: block;
+}
+.page-title{
+  margin-left: auto;
+  margin-right:auto;
+  padding-bottom: 1%;
+  font-family:'Nunito Sans', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing:normal;
+  color: #2f2f2f;
+}
+img.logo {
+  width: 30%;
+  display: none;
+  align-items: center;
+  margin: auto;
+  padding: 3%;
+  opacity: 0.7;
+}
+.register-img, .form{
+  /* padding: 3%; */
+  /* align-items: center; */
+  flex-grow: 1;
+  width: 100%;
+  /* margin:3%; */
+
+}
+.form{
+  width: 100%;
+  height: auto;
+  padding: 10px 23px 30px 24px;
+  padding: 2%;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right:auto;
+  text-align: center;
+  margin : 1%;
+  display: block;
+}
+.register-segment input,
+.register-segment button
+{
+  width: 90%;
+  height: 50px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 2%;
+  border-radius: 6px;
+  border: solid 1px #f1f1f1;
+  background-color: #fafafa;
+  padding-left: 2%;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #777777;
+}
+button.btn.btn-primary.mt-3 {
+  color: #fff;
+}
+.register-segment button{
+  margin-left: auto;
+  margin-right:auto;
+  display: block;
+  width: 90%;
+  height: 50px;
+  color:#fff;
+  border-radius: 12px;
+  margin-bottom: 4%;
+  box-shadow: 0 4px 16px 0 rgba(158, 158, 158, 0.25);
+  background-image: linear-gradient(to top, #012169d1, #5489ff);
+
+  }
+  .form{
+    width:90%;
+    display: block;
+    padding: 2%;
+    flex-grow: 3;
+  }
+  .segment{
+    flex-grow: 1;
+    width: 90%;
+
+  }
+  .text-left{
+    display: inline-block;
+    width: auto;
+  }
+  #title-myaccount{
+    padding-bottom: 1%;
+  }
+  .register-img{
+    display: block;
+    width: 90%;
+  }
+
+img.logo {
+  width: 30%;
+  display: none;
+  align-items: center;
+  margin: auto;
+  padding: 3%;
+  opacity: 0.7;
+}
+@media (min-width: 768px) {
+  .register-segment{
+    display:flex;
+  }
+  .form{
+    width: 60%;
+    display: flex;
+  }
+  .segment{
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  img.logo {
+    width: 30%;
+    display: block;
+    align-items: center;
+    margin: auto;
+    padding: 3%;
+    opacity: 0.7;
+  }
+}

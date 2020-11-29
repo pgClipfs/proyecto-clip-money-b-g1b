@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/billeterafront",
+            "outputPath": "../Billetera-Virtual/Billetera-Virtual/Bundles",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "billeterafront"
+    }
+  },
+  "defaultProject": "billeterafront",
+  "cli": {
+    "analytics": "15e5d574-dd0d-4244-93bd-2599824fa2f9"
+  }
 }
