@@ -1,6 +1,8 @@
+import { AuthService } from './../../services/auth.service';
 import { LoginUsuario } from './../../models/LoginUsuario';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -9,36 +11,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  public login: LoginUsuario[];
+  selectedLogin: LoginUsuario = new LoginUsuario();
 
-
-  userArray:LoginUsuario [] = []
-
-  constructor(private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
 
    }
 
   ngOnInit(): void {
-
+    localStorage.removeItem('token');
   }
 
-  submit( email: HTMLInputElement, password: HTMLInputElement){
-
-    let isActive = false ;
-    let currentEmail = email.value;
-    let currentPassword = password.value;
-    for (let i = 0; i < this.userArray.length; i++){
-      if(this.userArray[i].email == currentEmail && this.userArray[i].password == currentPassword){
-        isActive = true;
+  public onSubmit(form: NgForm, login: LoginUsuario){
+    if (form.invalid)
+    {
+      return;
+    }
+    else
+    {
+      this.authService.getToken(login).subscribe(resp =>{
+        localStorage.setItem('token', resp);
+        this.router.navigateByUrl('/micuenta');
+        console.log(resp)
+      },
+      err =>{
+        if(err.status == 401) alert("Compruebe su email o contraseña...")
+      });
+    }
+    console.log(this.selectedLogin);
   }
-}
-    if(isActive){
-      this.router.navigate(['/micuenta']);
-    }
-    else{
-      alert(" usuario o contraseña incorrecta");
-
-    }
-    //blanquear input researt
-
-    }
 }

@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UsuarioService } from './services/usuario.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -27,13 +29,14 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     SingupComponent,
     MyaccountComponent,
     ResetpasswordComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
-
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]

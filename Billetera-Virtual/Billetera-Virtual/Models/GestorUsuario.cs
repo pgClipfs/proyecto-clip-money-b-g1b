@@ -19,7 +19,7 @@ namespace Billetera_Virtual.Models
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "usuarioInsert";
+                comm.CommandText = "insertar_usuario";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Parameters.Add(new SqlParameter("@email", nuevo.Email));
                 comm.Parameters.Add(new SqlParameter("@password", nuevo.Password));
