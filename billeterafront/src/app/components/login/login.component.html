@@ -3,10 +3,16 @@
     <img class="logo" id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
       alt="logo Bitcoin" />
     <h1 class="page-title">Hola de nuevo!</h1>
-    <form id="login-form" class="form" (submit)="submit(email, password)">
-      <input type="email" id="email" placeholder="Email" #email required />
-      <input type="text" id="password" placeholder="password" type="password" #password required />
-      <button class="btn btn-primary mt-3 ">Ingresar</button>
+    <form id="login-form" class="form" #formulario="ngForm">
+
+      <input type="email" name="Email" placeholder="Email" [(ngModel)]="selectedLogin.email" required>
+
+      <input type="password" name="Password" placeholder="Contraseña" [(ngModel)]="selectedLogin.password" required>
+
+      <button class="btn btn-primary mt-3" type="submit" (click)="onSubmit(formulario, selectedLogin)">
+        Ingresar
+      </button>
+
       <a href="/resetpassword">
         <p class="link-text">¿Olvidaste tu contraseña?</p>
       </a>

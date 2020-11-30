@@ -1,7 +1,6 @@
+import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from './../../models/usuario';
-import { Router} from '@angular/router';
-
 
 
 @Component({
@@ -10,39 +9,33 @@ import { Router} from '@angular/router';
   styleUrls: ['./singup.component.css']
 })
 export class SingupComponent implements OnInit {
-  userArray:Usuario [] = []
+  public usuarios: Usuario[]
+  selectedUsuario: Usuario = new Usuario();
 
-  constructor(private router: Router) { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+    this.usuarioService.getUsuarios().subscribe(resp => {
+      console.log(resp);
+      this.usuarios = resp;
+    });
   }
-  submit( email:HTMLInputElement, password: HTMLInputElement,passwordrepetead:HTMLInputElement){
-    let currentEmail = email.value;
-    let currentPassword = password.value;
-    for (let i = 0; i < this.userArray.length; i++){
-       if(this.userArray[i].email == currentEmail){
-        alert("Existe un usuario registrado con esta cuenta de correo");
-        console.log(currentEmail);
-       }
-       else if(currentPassword == passwordrepetead.value){
-         alert("las contraseñas coinciden")
 
-         //validacion de contraseña
-       }
-      }
+  public onSubmit(usuario: Usuario) {
+    if (usuario.id == 0) {
+      this.usuarioService.onCreateUsuario(usuario).subscribe(resp => {
+        this.usuarios.push(resp);
+      })
     }
-    // onClick (){
-    //   this.router.navigate(['/micuenta']);
+    else {
+      this.usuarioService.onUpdateUsuario(usuario).subscribe(resp => {
 
-    // }
-  //usuario1 = new Usuario ;
-  //fijar si el nombre de usaurio existe
-  //si si crear sino  devolver que genere uno nuevo
-  // this.router.navigate(['/micuenta']);
+      })
+    }
+    console.log(this.selectedUsuario);
+    this.selectedUsuario = new Usuario();
   }
-  // onChange(password: HTMLInputElement){
-  //   //variable local
-  //   //for para recorrer password
-  // }
+
+}
 
 

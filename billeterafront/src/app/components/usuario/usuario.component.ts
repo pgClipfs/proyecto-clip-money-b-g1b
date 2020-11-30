@@ -19,17 +19,5 @@ export class UsuarioComponent implements OnInit {
     })
 
   }
-  login()
-  {
-    alert(" hacer función para ingresar");
-    //TOMAR VALOR DE INPUT USUARIO
-    //TOMAR VAVAOR DE INPUT CONTRASEÑA
-
-
-  }
-  nuevoUsuario(){
-    alert(" hacer función para ingresar");
-
-  }
 
 }
