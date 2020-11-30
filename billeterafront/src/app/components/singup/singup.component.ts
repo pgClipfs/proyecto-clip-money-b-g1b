@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from './../../models/usuario';
+
 
 
 @Component({
@@ -12,7 +14,7 @@ export class SingupComponent implements OnInit {
   public usuarios: Usuario[]
   selectedUsuario: Usuario = new Usuario();
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private route: Router) { }
 
   ngOnInit(): void {
     this.usuarioService.getUsuarios().subscribe(resp => {
@@ -34,6 +36,8 @@ export class SingupComponent implements OnInit {
     }
     console.log(this.selectedUsuario);
     this.selectedUsuario = new Usuario();
+    alert('Se creo tu cuenta correctamente');
+    this.route.navigateByUrl('/ingresar');
   }
 
 }

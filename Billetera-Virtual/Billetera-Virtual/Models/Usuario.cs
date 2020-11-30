@@ -17,29 +17,25 @@ namespace Billetera_Virtual.Models
         private string cuil_cuit;
         private string estado = "FALSE";
 
-        public Usuario(int id, string nombre, string apellido, string dni, string email, string password, string fechaNacimiento, string cuil_cuit, string estado)
+        public Usuario(int id, string nombre, string apellido, string dni, string fechaNacimiento, string cuil_cuit)
         {
             this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
             this.dni = dni;
-            this.email = email;
-            this.password = password;
             this.fechaNacimiento = fechaNacimiento;
             this.cuil_cuit = cuil_cuit;
-            this.estado = estado;
         }
 
         public Usuario()
         {
         }
 
-        public Usuario(int id, string nombre, string apellido, string dni, string estado)
+        public Usuario(int id, string email, string password, string estado)
         {
             this.id = id;
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dni = dni;
+            this.email = email;
+            this.password = password;
             this.estado = estado;
         }
 

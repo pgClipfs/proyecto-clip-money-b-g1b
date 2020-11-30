@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit {
       this.authService.getToken(login).subscribe(resp =>{
         localStorage.setItem('token', resp);
         this.router.navigateByUrl('/micuenta');
-        console.log(resp)
+        console.log(resp);
       },
       err =>{
         if(err.status == 401) alert("Compruebe su email o contraseña...")
       });
     }
-    console.log(this.selectedLogin);
+    console.log("Selected Login", this.selectedLogin);
+    return this.selectedLogin;
   }
 }
