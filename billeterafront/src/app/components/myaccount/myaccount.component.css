@@ -106,13 +106,28 @@ button.btn.btn-primary.mt-3 {
   .text-left{
     display: inline-block;
     width: auto;
+    padding-bottom: 1%;
+    /* margin: 21px 13.5px 57px 0; */
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #777777;
+    margin-top: 2rem;
+    font-weight: lighter;
   }
   #title-myaccount{
     padding-bottom: 1%;
+    display: inline;
   }
   .register-img{
     display: block;
-    width: 90%;
+    width: 100%;
+    align-items: center;
+    padding: 2%;
   }
 
 img.logo {
@@ -134,6 +149,12 @@ img.logo {
   .segment{
     width: 50%;
   }
+  .register-img{
+    display: block;
+    width: 30%;
+    align-items: center;
+    padding: 2%;
+}
 }
 @media (min-width: 992px) {
   img.logo {

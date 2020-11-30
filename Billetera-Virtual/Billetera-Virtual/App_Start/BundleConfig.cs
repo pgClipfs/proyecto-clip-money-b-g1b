@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Billetera_Virtual
+namespace Billetera_Virtual.App_Start
 {
     public class BundleConfig
     {

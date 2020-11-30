@@ -36,7 +36,6 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 
   ],
   providers: [UsuarioService],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

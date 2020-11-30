@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using Billetera_Virtual.Controllers;
 
-namespace Billetera_Virtual.App_Start
+namespace Billetera_Virtual
 {
     public static class WebApiConfig
     {

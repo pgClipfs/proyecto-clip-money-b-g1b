@@ -9,7 +9,7 @@ namespace Billetera_Virtual.Models
 {
     public class GestorLogin
     {
-        public bool ValidarLogin(LoginUsuario ploginRequest)
+        public bool ValidarLogin(LoginUsuario uloginRequest)
         {
             string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
             bool result = false;
@@ -20,8 +20,8 @@ namespace Billetera_Virtual.Models
 
                 SqlCommand comm = new SqlCommand("obtener_login", conn);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@email", ploginRequest.Email));
-                comm.Parameters.Add(new SqlParameter("@password", ploginRequest.Password));
+                comm.Parameters.Add(new SqlParameter("@email", uloginRequest.Email));
+                comm.Parameters.Add(new SqlParameter("@password", uloginRequest.Password));
 
                 SqlDataReader reader = comm.ExecuteReader();
 

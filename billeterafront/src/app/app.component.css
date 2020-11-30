@@ -1,5 +1,3 @@
-
-/*
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&display=swap');
 
 :host {
@@ -31,7 +29,8 @@ a:hover {
   color: #1976d2;
   text-decoration: none;
 }
-/* Billetera Virtual Style *//*
+
+/* Billetera Virtual Style */
 .container{
   padding: 3%;
   align-items: center;
@@ -58,4 +57,3 @@ img.logo {
   padding: 3%;
   opacity: 0.7;
 }
-*/

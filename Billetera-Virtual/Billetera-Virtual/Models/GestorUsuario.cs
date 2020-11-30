@@ -21,8 +21,8 @@ namespace Billetera_Virtual.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "usuarioInsert";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@password", nuevo.Password));
                 comm.Parameters.Add(new SqlParameter("@email", nuevo.Email));
+                comm.Parameters.Add(new SqlParameter("@password", nuevo.Password));
 
                 id = Convert.ToInt32(comm.ExecuteScalar());
             }
@@ -46,11 +46,12 @@ namespace Billetera_Virtual.Models
                 while (dr.Read())
                 {
                     int id = dr.GetInt32(0);
-                    string nombre = dr.GetString(4).Trim();
-                    string apellido = dr.GetString(5).Trim();
-                    int dni = dr.GetInt32(6);
+                    string nombre = dr.GetString(1).Trim();
+                    string apellido = dr.GetString(2).Trim();
+                    string dni = dr.GetString(3);
+                    string estado = dr.GetString(4);
 
-                    Usuario p = new Usuario(id, nombre, apellido, dni);
+                    Usuario p = new Usuario(id, nombre, apellido, dni, estado);
                     lista.Add(p);
                 }
 
@@ -90,23 +91,21 @@ namespace Billetera_Virtual.Models
                 SqlCommand comm = new SqlCommand("obtener_usuario", conn);
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
                 comm.Parameters.Add(new SqlParameter("@id", id));
+                Console.WriteLine(id);
 
                 SqlDataReader dr = comm.ExecuteReader();
                 if (dr.Read())
                 {
-                    string nombreCuenta = dr.GetString(1);
-                    string password = dr.GetString(2);
-                    string email = dr.GetString(3);
-                    string nombre = dr.GetString(4);
-                    string apellido = dr.GetString(5);
-                    int dni = dr.GetInt32(6);
-                    DateTime fechaNacimiento = dr.GetDateTime(7);
-                    int cuil_cuit = dr.GetInt32(8);
-                    //Byte fotoDniFrente = dr.GetByte(9);
-                    //Byte fotoDniRev = dr.GetByte(10);
-                    string estado = dr.GetString(11);
+                    string nombre = dr.GetString(1);
+                    string apellido = dr.GetString(2);
+                    string dni = dr.GetString(3);
+                    string email = dr.GetString(4);
+                    string password = dr.GetString(5);
+                    string fechaNacimiento = dr.GetString(6);
+                    string cuil_cuit = dr.GetString(7);
+                    string estado = dr.GetString(8);
 
-                    p = new Usuario(id, nombreCuenta, password, email, nombre, apellido, dni, fechaNacimiento, cuil_cuit, /*fotoDniFrente, fotoDniRev,*/ estado);
+                    p = new Usuario(id, nombre, apellido, dni, email, password, fechaNacimiento, cuil_cuit, estado);
                 }
                 dr.Close();
             }
@@ -124,16 +123,14 @@ namespace Billetera_Virtual.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "update_Usuario";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
-                comm.Parameters.Add(new SqlParameter("@nombreCuenta", p.NombreCuenta));
-                comm.Parameters.Add(new SqlParameter("@password", p.Password));
-                comm.Parameters.Add(new SqlParameter("@email", p.Email));
                 comm.Parameters.Add(new SqlParameter("@nombre", p.Nombre));
                 comm.Parameters.Add(new SqlParameter("@apellido", p.Apellido));
                 comm.Parameters.Add(new SqlParameter("@dni", p.Dni));
+                comm.Parameters.Add(new SqlParameter("@email", p.Email));
+                comm.Parameters.Add(new SqlParameter("@password", p.Password));
                 comm.Parameters.Add(new SqlParameter("@fechaNacimiento", p.FechaNacimiento));
                 comm.Parameters.Add(new SqlParameter("@cuil_cuit", p.Cuil_Cuit));
-                //comm.Parameters.Add(new SqlParameter("@fotoDniFrente", p.FotoDniFrente));
-                //comm.Parameters.Add(new SqlParameter("@fotoDniRev", p.FotoDniRev));
+                comm.Parameters.Add(new SqlParameter("@Id", p.Id));
 
                 comm.ExecuteNonQuery();
             }
