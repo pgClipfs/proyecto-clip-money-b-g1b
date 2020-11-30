@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="login-segment">
+    <img class="logo" id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
+      alt="logo Bitcoin" />
+    <h1 class="page-title">Hola de nuevo!</h1>
+    <form id="login-form" class="form" (submit)="submit(email, password)">
+      <input type="email" id="email" placeholder="Email" #email required />
+      <input type="text" id="password" placeholder="password" type="password" #password required />
+      <button class="btn btn-primary mt-3 ">Ingresar</button>
+      <a href="/resetpassword">
+        <p class="link-text">¿Olvidaste tu contraseña?</p>
+      </a>
+      <div class="sign-up-segment">
+        <p class="text">No tenés una cuenta?</p><a href="/registrarse" class="text-style-1">Registrate</a>
+      </div>
+    </form>
+  </div>
+</div>
