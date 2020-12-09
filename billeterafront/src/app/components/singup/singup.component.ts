@@ -8,7 +8,7 @@ import { Usuario } from './../../models/usuario';
 @Component({
   selector: 'app-singup',
   templateUrl: './singup.component.html',
-  styleUrls: ['./singup.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class SingupComponent implements OnInit {
   public usuarios: Usuario[]

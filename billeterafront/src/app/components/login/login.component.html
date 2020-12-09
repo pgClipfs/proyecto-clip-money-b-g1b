@@ -1,24 +1,29 @@
 <div class="container">
-  <div class="login-segment">
-    <img class="logo" id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
-      alt="logo Bitcoin" />
+  <div class="segment">
+    <div class="register-img">
+    <img class="logo"  src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
+      alt="Billetera virtual" />
     <h1 class="page-title">Hola de nuevo!</h1>
+  </div>
     <form id="login-form" class="form" #formulario="ngForm">
 
       <input type="email" name="Email" placeholder="Email" [(ngModel)]="selectedLogin.email" required>
 
       <input type="password" name="Password" placeholder="Contraseña" [(ngModel)]="selectedLogin.password" required>
 
-      <button class="btn btn-primary mt-3" type="submit" (click)="onSubmit(formulario, selectedLogin)">
+      <button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(formulario, selectedLogin)">
         Ingresar
       </button>
-
       <a href="/resetpassword">
         <p class="link-text">¿Olvidaste tu contraseña?</p>
       </a>
-      <div class="sign-up-segment">
-        <p class="text">No tenés una cuenta?</p><a href="/registrarse" class="text-style-1">Registrate</a>
+      <div class="actions">
+
+
+          <p class="text">No tenés una cuenta?</p><a href="/registrarse" class="link-text">Registrate</a>
       </div>
+
+
     </form>
   </div>
 </div>

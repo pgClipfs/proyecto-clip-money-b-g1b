@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="register-segment">
+  <div class="segment">
     <div class="register-img">
-      <img class="logo" id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
-        alt="noseve" />
+      <img class="logo"  src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
+        alt="Billetera virtual" />
       <h1 class="page-title">Crea tu cuenta!</h1>
     </div>
     <form id="register-form" class="form">
@@ -11,12 +11,12 @@
 
       <input type="password" [(ngModel)]="selectedUsuario.password"  name="Password" placeholder="Contraseña" class="form-control" required>
 
-      <!--<input type="password" [(ngModel)]="selectedUsuario.Password"  name="Password" placeholder="Repite la contraseña" class="form-control" required>-->
+      <!-- <input type="password" [(ngModel)]="selectedUsuario.password"  name="Password" placeholder="Repite la contraseña" class="form-control" required> -->
 
-      <button class="btn btn-primary mt-3" (click)="onSubmit(selectedUsuario)">Crear cuenta</button>
+      <button class="btn btn-primary mt-3 mb-3" (click)="onSubmit(selectedUsuario)">Crear cuenta</button>
+      <div class="actions">
+        <p class="text">¿Ya tienes una?</p><a href="/ingresar" class="link-text">Ingresar</a>
 
-      <div class="login-segment">
-        <p class="text">¿Ya tienes una?</p><a href="/ingresar" class="text-style-1">Ingresar</a>
       </div>
     </form>
   </div>
