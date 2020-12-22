@@ -8,7 +8,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 /* Billetera Virtual Style */
 .container{
   padding: 3%;
@@ -19,7 +18,7 @@ h1.page-title{
   width: 100%;
   margin-left: auto;
   margin-right:auto;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
   padding-top: 0.5rem;
   font-size: 42px;
   font-weight: 800;
@@ -170,6 +169,16 @@ background-image: linear-gradient(to top, #012169d1, #5489ff);
   flex-grow: 1;
   margin:3%;
 
+}
+.alert-danger {
+    color: #e23141;
+    background-color: #fff;
+    border-color: #f5c6cb;
+    width: 90%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 10px;
 }
 @media (min-width: 576px) {
 

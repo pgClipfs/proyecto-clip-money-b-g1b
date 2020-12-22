@@ -15,6 +15,7 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SingupComponent,
     MyaccountComponent,
     ResetpasswordComponent,
+    SecretanswerComponent,
   ],
   imports: [
     BrowserModule,

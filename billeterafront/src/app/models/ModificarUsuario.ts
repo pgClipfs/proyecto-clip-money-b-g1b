@@ -5,8 +5,8 @@ export class ModificarUsuario {
     dni: string;
     email: string;
     password: string;
+    confirm_password: string;
     fechaNacimiento: string;
     cuil_cuit: string;
     estado : boolean;
   }
-  
