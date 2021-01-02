@@ -125,10 +125,16 @@ namespace Billetera_Virtual.Models
                     string nombre = dr.GetString(1);
                     string apellido = dr.GetString(2);
                     string dni = dr.GetString(3);
-                    string fechaNacimiento = dr.GetString(6);
-                    string cuil_cuit = dr.GetString(7);
+                    string genero = dr.GetString(4);
+                    string fechaNacimiento = dr.GetString(5);
+                    string cuil_cuit = dr.GetString(6);
+                    string calle = dr.GetString(7);
+                    string numero_de_calle = dr.GetString(8);
+                    string barrio = dr.GetString(9);
+                    string codigo_postal = dr.GetString(10);
+                    string ciudad = dr.GetString(11);
 
-                    p = new Usuario(id, nombre, apellido, dni, fechaNacimiento, cuil_cuit);
+                    p = new Usuario(id, nombre, apellido, dni, genero, fechaNacimiento, cuil_cuit, calle, numero_de_calle, barrio, codigo_postal, ciudad);
                 }
                 dr.Close();
             }
@@ -151,8 +157,16 @@ namespace Billetera_Virtual.Models
                 comm.Parameters.Add(new SqlParameter("@nombre", p.Nombre));
                 comm.Parameters.Add(new SqlParameter("@apellido", p.Apellido));
                 comm.Parameters.Add(new SqlParameter("@dni", p.Dni));
+                comm.Parameters.Add(new SqlParameter("@genero", p.Genero));
                 comm.Parameters.Add(new SqlParameter("@fechaNacimiento", p.FechaNacimiento));
                 comm.Parameters.Add(new SqlParameter("@cuil_cuit", p.Cuil_Cuit));
+                comm.Parameters.Add(new SqlParameter("@calle", p.Calle));
+                comm.Parameters.Add(new SqlParameter("@numero_de_calle", p.Numero_de_calle));
+                comm.Parameters.Add(new SqlParameter("@barrio", p.Barrio));
+                comm.Parameters.Add(new SqlParameter("@codigo_postal",p.Codigo_postal));
+                comm.Parameters.Add(new SqlParameter("@ciudad",p.Ciudad));
+
+
 
                 comm.ExecuteNonQuery();
             }
