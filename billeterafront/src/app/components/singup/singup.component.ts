@@ -30,7 +30,6 @@ export class SingupComponent implements OnInit {
     },
     {
       validator: ConfirmedValidator( 'password', 'confirm_password'),
-
     })
   }
   get f(){
@@ -39,7 +38,6 @@ export class SingupComponent implements OnInit {
   submit(){
     console.log(this.form.value);
   }
-
 
   public onSubmit(usuario: Usuario) {
     if (usuario.id == 0) {
@@ -58,8 +56,5 @@ export class SingupComponent implements OnInit {
     this.route.navigateByUrl('/ingresar');
   }
 
-
 }
-
-
 
