@@ -13,9 +13,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
+
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SecretanswerComponent } from './components/secretanswer/secretanswer.co
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // FormGroup,
     NgbModule,
   ],
   providers: [UsuarioService],

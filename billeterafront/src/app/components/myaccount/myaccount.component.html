@@ -1,25 +1,121 @@
 <div class="container">
-  <div class="segment">
-  <div class="register-img">
-    <img class="logo"  src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg" alt="logo Bitcoin"/>
+
     <h1 class="page-title">Completá tus datos</h1>
-   </div>
 
-      <form id="register-form" class="form" >
 
-          <input type="text" [(ngModel)]="selectedUsuario.nombre" name="Nombre" placeholder="Nombre" class="form-control" required>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(selectedUsuario)" id="register-form" class="form">
+        <div class="form-myaccount">
+            <div class="segment-myaccount">
+                <div class="form-group ">
+                    <input type="text" id="name" class="form-control" formControlName="name" [(ngModel)]="selectedUsuario.nombre" placeholder="Nombre" ngModel name="true" required minlength="3">
+                    <div *ngIf="(name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors.required">
+                            El nombre es requerido.
+                        </div>
+                        <div *ngIf="name.errors.minlength">
+                            El nombre debe tener un minimo de tres caracteres.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="lastname" class="form-control" formControlName="lastname" [(ngModel)]="selectedUsuario.apellido" placeholder="Apellido" name="Apellido" ngModel lastname="true" required>
+                    <div *ngIf=" (lastname.dirty && lastname.touched)" class="alert alert-danger">
+                        <div *ngIf="lastname.errors.required">
+                            El apellido es requerido.
+                        </div>
+                        <div *ngIf="lastname.errors.minlength">
+                            El apellido debe tener un minimo de tres caracteres.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <input type="email" id="email" class="form-control" formControlName="email" [(ngModel)]="selectedUsuario.email" placeholder="Email" ngModel email="true" required>
+                    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                        <div *ngIf="email.errors.required" class="error">El email es requerido</div>
+                        <div *ngIf="email.invalid" class="error">La dirección de correo electrónico debe tener el formato correcto.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="dninumber" class="form-control" formControlName="dni" [(ngModel)]="selectedUsuario.dni" placeholder="Nº DNI" name="Dni" required>
+                    <div *ngIf="(dni.dirty && dni.touched)" class="alert alert-danger">
+                        <div *ngIf="dni.errors.maxlength" class="error">El dni debe tener 8 dígitos</div>
+                    </div>
+                </div>
+                <!-- [(ngModel)]="selectedUsuario.frentedni" -->
+                <div class="form-group">
+                    <label for="frente-dni"> Subir una foto del frente de su D.N.I.</label>
+                    <input type="file" id="frontdni" class="form-control" formControlName="frontdni" placeholder="Dorso de Dni" name="frentedni" required>
+                </div>
+                <div class="form-group">
+                    <label for="dorso-dni"> Subir una foto del dorso de su D.N.I.</label>
+                    <!-- [(ngModel)]="selectedUsuario.dorsodni -->
+                    <input type="file" id="backdni" class="form-control" formControlName="backdni" placeholder="Dosrso  de Dni" name="dosrsodni" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="date" class="form-control" [(ngModel)]="selectedUsuario.fechaNacimiento" placeholder="Fecha de Nacimiento" name="fechaNacimiento" required>
+                </div>
+            </div>
+            <div class="segment-myaccount">
 
-          <input type="text" [(ngModel)]="selectedUsuario.apellido" name="Apellido" placeholder="Apellido" class="form-control" required>
-
-          <input type="text" [(ngModel)]="selectedUsuario.dni" name="Dni" placeholder="Nº DNI" maxlength="8" class="form-control" pattern= "[0-9]" required>
-
-          <input type="date" [(ngModel)]="selectedUsuario.fechaNacimiento" name="fechaNacimiento" placeholder="Fecha de Nacimiento" class="form-control" required>
-
-          <input type="text" [(ngModel)]="selectedUsuario.cuil_cuit" name="Cuil_Cuit" placeholder="Cuil-Cuit" maxlength="11" class="form-control" required>
-
-          <button class="btn btn-primary mt-3" (click)="onSubmit(selectedUsuario)">Enviar</button>
-
-      </form>
-
-    </div>
-    </div>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="selectedUsuario.cuil_cuit" name="Cuil_Cuit" placeholder="Cuil-Cuit" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <!-- [(ngModel)]="selectedUsuario.calle" -->
+                    <input type="text" id="street" name="Calle" formControlName="street" placeholder="Calle" class="form-control" required>
+                    <div *ngIf="(street.dirty && street.touched)" class="alert alert-danger">
+                        <div *ngIf="street.errors.required">
+                            El nombre de la calle es requerido
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- [(ngModel)]="selectedUsuario.numerocalle" -->
+                    <input type="number" name="Numero de la calle" placeholder="Numero de la calle" class="form-control" formControlName="streetnumber" required>
+                    <div *ngIf="(streetnumber.dirty && streetnumber.touched)" class="alert alert-danger">
+                        <div *ngIf="streetnumber.errors.required">
+                            El numero de la calle es requerida
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- [(ngModel)]="selectedUsuario.barrio" -->
+                    <input type="text" id="neighborhood" name="Barrio" formControlName="neighborhood" placeholder="Barrio" class="form-control" required>
+                    <div *ngIf=" (neighborhood.dirty && neighborhood.touched)" class="alert alert-danger">
+                        <div *ngIf="neighborhood.errors.required">
+                            El nombre del barrio es requerido
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- [(ngModel)]="selectedUsuario.codigopostal" -->
+                    <input type="number" id="zip" name="Código Postal" placeholder="Código Postal" class="form-control" formControlName="zip" required>
+                    <div *ngIf="(zip.dirty && zip.touched)" class="alert alert-danger">
+                        <div *ngIf="zip.errors.required">
+                            El código postal es requerido
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- [(ngModel)]="selectedUsuario.codigopostal" -->
+                    <input type="text" id="city" name="Ciudad" placeholder="Ciudad" class="form-control" formControlName="city" required>
+                    <div *ngIf="(city.dirty && city.touched)" class="alert alert-danger">
+                        <div *ngIf="city.errors.required">
+                            El nombre de la ciudad es requerido
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- [(ngModel)]="selectedUsuario.codigopostal" -->
+                    <input type="text" id="secretanswer" name="Pregunta secreta" placeholder="pregunta secreta" class="form-control" formControlName="secretanswer" required>
+                    <div *ngIf="(secretanswer.dirty && secretanswer.touched)" class="alert alert-danger">
+                        <div *ngIf="secretanswer.errors.required">
+                            Debe seleccionar una pregunta para el recupero ed contraseña
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-3 mb-3 " (click)="onSubmit(selectedUsuario)" [disabled]="!form.valid" type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>

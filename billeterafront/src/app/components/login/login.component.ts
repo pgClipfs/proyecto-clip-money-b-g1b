@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.removeItem('token');
   }
-
   public onSubmit(form: NgForm, login: LoginUsuario){
     if (form.invalid)
     {
