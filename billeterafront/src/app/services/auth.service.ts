@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { LoginUsuario } from './../models/LoginUsuario';
+import { LoginUsuarioModule } from '../models/login-usuario/login-usuario.module';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -20,7 +20,7 @@ export class AuthService {
 
    }
 
-   getToken(login: LoginUsuario): Observable<string>{
+   getToken(login: LoginUsuarioModule): Observable<string>{
      let header = new HttpHeaders().set('Content-Type', 'aplication/json');
      return this.http.post<string>(this.url, login);
    }
