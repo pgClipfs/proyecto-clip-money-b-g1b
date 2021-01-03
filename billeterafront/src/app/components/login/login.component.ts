@@ -4,6 +4,9 @@ import { LoginUsuarioModule } from '../../models/login-usuario/login-usuario.mod
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+// AGREGADO
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -16,8 +19,10 @@ export class LoginComponent implements OnInit {
   public login: LoginUsuarioModule[];
   
   selectedLogin: LoginUsuarioModule = new LoginUsuarioModule();
-
-  constructor(private authService: AuthService, private router: Router, private usuarioLoginService: UsuarioLoginService) {
+// AGREGADO
+  form: FormGroup = new FormGroup({});
+// AGREGADO FB
+  constructor(private authService: AuthService, private router: Router, private usuarioLoginService: UsuarioLoginService, private fb: FormBuilder) {
 
   }
 
@@ -25,11 +30,22 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('login');
     localStorage.removeItem('id');
+    //AGREGADO HASTA QUE QUEDE UN ESPACIO (LINEA 46)
+    this.form = this.fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+  }
+  get f() {
+    return this.form.controls;
   }
 
-  public onSubmit(form: NgForm, login: LoginUsuarioModule) {
-    if (form.invalid) {
-      return;
+  //public onSubmit(form: NgForm, login: LoginUsuarioModule) {
+  public onSubmit(login: LoginUsuarioModule) {
+    //if (form.invalid) {
+    if (this.form.invalid) {
+      // Agregardo el resultado del retunr
+      return (alert('Ta mal'));
     }
     else {
       this.authService.getToken(login).subscribe(resp => {

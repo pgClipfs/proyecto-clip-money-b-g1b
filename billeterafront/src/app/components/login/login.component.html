@@ -5,14 +5,29 @@
                 alt="Billetera virtual" />
             <h1 class="page-title">Hola de nuevo!</h1>
         </div>
-        <form id="login-form" class="form" #formulario="ngForm">
+        <!--form id="login-form" class="form" #formulario="ngForm"-->
+        <form [formGroup]="form" (ngSubmit)="onSubmit(selectedLogin)" id="login-form" class="form"  #formulario="ngForm">
 
-            <input type="email" name="Email" placeholder="Email" [(ngModel)]="selectedLogin.email" required>
+            <!--input type="email" name="Email" placeholder="Email" [(ngModel)]="selectedLogin.email" required-->
+            <!-- AGREGAO -->                                                    <!-- selectedUsuario.email -->    
+            <input formControlName="email" id="email" type="email" [(ngModel)]="selectedLogin.email"
+                    class="form-control" placeholder="Email" ngModel email="true" required>
+            <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                <div *ngIf="f.email.errors.required" class="error">El Email es requerido</div>
+                <div *ngIf="f.email.invalid" class="error">Debe tener formato de Email</div>
+            </div>
 
-            <input type="password" name="Password" placeholder="Contraseña" [(ngModel)]="selectedLogin.password"
-                required>
-
-            <button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(formulario, selectedLogin)">
+            <!--input type="password" name="Password" placeholder="Contraseña" [(ngModel)]="selectedLogin.password"
+                required-->
+            <div class="form-group ">
+                <input formControlName="password" id="password" type="password" [(ngModel)]="selectedLogin.password"
+                    class="form-control" placeholder="Password">
+                <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.password.errors.required" class="error">Se requiere una contraseña.</div>
+                </div>
+            </div>
+            <!--button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(formulario, selectedLogin)"-->
+            <button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(selectedLogin)">
                 Ingresar
             </button>
             <a href="/resetpassword">
