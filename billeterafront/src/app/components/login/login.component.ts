@@ -3,7 +3,7 @@ import { UsuarioLoginService } from '../../services/usuario-login.service';
 import { LoginUsuarioModule } from '../../models/login-usuario/login-usuario.module';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,10 +14,12 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   public login: LoginUsuarioModule[];
-  
+
   selectedLogin: LoginUsuarioModule = new LoginUsuarioModule();
 
-  constructor(private authService: AuthService, private router: Router, private usuarioLoginService: UsuarioLoginService) {
+  form: FormGroup = new FormGroup({});
+
+  constructor(private authService: AuthService, private router: Router, private usuarioLoginService: UsuarioLoginService, private fb: FormBuilder) {
 
   }
 
@@ -25,10 +27,19 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('login');
     localStorage.removeItem('id');
+
+    this.form = this.fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
   }
 
-  public onSubmit(form: NgForm, login: LoginUsuarioModule) {
-    if (form.invalid) {
+  get f() {
+    return this.form.controls;
+  }
+
+  public onSubmit(login: LoginUsuarioModule) {
+    if (this.form.invalid) {
       return;
     }
     else {
@@ -48,7 +59,7 @@ export class LoginComponent implements OnInit {
       list = Object.values(data);
       localStorage.setItem('id', list[0]);
     });
-    
+
     return this.selectedLogin;
   }
 }

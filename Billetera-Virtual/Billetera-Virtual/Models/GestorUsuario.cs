@@ -106,6 +106,29 @@ namespace Billetera_Virtual.Models
             return usuario;
         }
 
+        public bool ValidarRecuperoContraseña(LoginUsuario uloginRequest)
+        {
+            string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+            bool result = false;
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("obtener_respuestaSecreta", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@email", uloginRequest.Email));
+
+                SqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+
         public Usuario ObtenerPorId(int id)
         {
             Usuario p = null;
@@ -165,8 +188,6 @@ namespace Billetera_Virtual.Models
                 comm.Parameters.Add(new SqlParameter("@barrio", p.Barrio));
                 comm.Parameters.Add(new SqlParameter("@codigo_postal",p.Codigo_postal));
                 comm.Parameters.Add(new SqlParameter("@ciudad",p.Ciudad));
-
-
 
                 comm.ExecuteNonQuery();
             }

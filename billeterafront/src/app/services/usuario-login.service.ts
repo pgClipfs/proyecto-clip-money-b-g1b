@@ -17,4 +17,9 @@ export class UsuarioLoginService {
     let header = new HttpHeaders().set('Content-Type','application/json');
     return this.http.post<LoginUsuarioModule>(this.url, login);
   }
+
+  allowPasswordChange(login: LoginUsuarioModule): Observable<LoginUsuarioModule>{
+    let header = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.get<LoginUsuarioModule>(this.url);
+  }
 }

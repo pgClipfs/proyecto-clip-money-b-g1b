@@ -20,5 +20,13 @@ namespace Billetera_Virtual.Controllers
             GestorUsuario gUsuario = new GestorUsuario();
             return gUsuario.ObtenerIdPorLogin(login);
         }
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        public bool Get(LoginUsuario login)
+        {
+            GestorUsuario gUsuario = new GestorUsuario();
+            return gUsuario.ValidarRecuperoContraseña(login);
+        }
     }
 }
