@@ -27,15 +27,13 @@
                 </div>
             </div>
             <!--button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(formulario, selectedLogin)"-->
-            <button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(selectedLogin)">
+            <button class="btn btn-primary mt-3 mb-3" type="submit" (click)="onSubmit(selectedLogin)" [disabled]="!form.valid">
                 Ingresar
             </button>
             <a href="/resetpassword">
                 <p class="link-text">¿Olvidaste tu contraseña?</p>
             </a>
-            <div class="actions">
-
-
+            <div class="actions" style="text-align: center;">
                 <p class="text">No tenés una cuenta?</p><a href="/registrarse" class="link-text">Registrate</a>
             </div>
         </form>

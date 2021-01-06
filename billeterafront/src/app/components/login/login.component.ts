@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
 // AGREGADO
   form: FormGroup = new FormGroup({});
 // AGREGADO FB
-  constructor(private authService: AuthService, private router: Router, private usuarioLoginService: UsuarioLoginService, private fb: FormBuilder) {
-
-  }
+  constructor(private authService: AuthService, private router: Router, private usuarioLoginService: UsuarioLoginService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    //let correo=this.selectedLogin.email;
+    console.log(this.selectedLogin.email);
     localStorage.removeItem('token');
     localStorage.removeItem('login');
     localStorage.removeItem('id');
@@ -35,6 +35,15 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
+    //si mail=nuevo@h.com mostrar una alerta o un boton para crear cuenta con dicho mail
+    //if(this.selectedLogin.email='nuevo@h.com'){ // Comunicacion de dos vias
+    
+    //let correo=this.selectedLogin.email;
+    //console.log(correo);
+
+    /*if(this.usuarioLoginService.)
+      alert('Mail no registrado. Desea crear cuenta?');
+    }*/
   }
   get f() {
     return this.form.controls;
@@ -44,8 +53,7 @@ export class LoginComponent implements OnInit {
   public onSubmit(login: LoginUsuarioModule) {
     //if (form.invalid) {
     if (this.form.invalid) {
-      // Agregardo el resultado del retunr
-      return (alert('Ta mal'));
+      return;
     }
     else {
       this.authService.getToken(login).subscribe(resp => {
@@ -56,6 +64,7 @@ export class LoginComponent implements OnInit {
       },
         err => {
           if (err.status == 401) alert("Compruebe su email o contraseña...")
+          // AGREGAR LO DE CREAR CUENTA
         });
     }
     //console.log("Selected Login", this.selectedLogin);
