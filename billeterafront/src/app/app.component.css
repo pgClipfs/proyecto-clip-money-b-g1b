@@ -96,7 +96,7 @@ img.logo {
 }
 
 .form-myaccount {
-    width: 100%;
+    width: 80%;
     display: flex;
 }
 
@@ -200,7 +200,24 @@ a {
     margin-right: auto;
     font-size: 10px;
 }
+form#register-form-myaccount {
+    width: 80%;
+}
+form#register-form-myaccount {
+    width: 100%;
+    padding: 1%;
+    margin: 5%;
+    background-color: transparent;
 
+}
+#register-form-myaccount input{
+    padding-left: 5px;
+    margin-bottom: 0;
+    width: 80%;
+}
+.form-group{
+    margin-bottom: 0.3rem;
+}
 @media (min-width: 576px) {}
 
 @media (min-width: 768px) {
