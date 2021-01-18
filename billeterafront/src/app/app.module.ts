@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
 import { UsuarioLoginService } from './services/usuario-login.service';
+import { MainComponent } from './components/main/main.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { UsuarioLoginService } from './services/usuario-login.service';
     MyaccountComponent,
     ResetpasswordComponent,
     SecretanswerComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
