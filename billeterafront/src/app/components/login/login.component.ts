@@ -43,10 +43,14 @@ export class LoginComponent implements OnInit {
       return;
     }
     else {
+      if (this.selectedLogin.email == "registrado@com"){
+        alert("El mail esta registrado");
+        //this.router.navigateByUrl('/ingresar');
+      }
       this.authService.getToken(login).subscribe(resp => {
         localStorage.setItem('token', resp);
         localStorage.setItem('login', JSON.stringify(login));
-        this.router.navigateByUrl('/micuenta');
+        //this.router.navigateByUrl('/micuenta');
         console.log(resp);
       },
         err => {
@@ -59,7 +63,6 @@ export class LoginComponent implements OnInit {
       list = Object.values(data);
       localStorage.setItem('id', list[0]);
     });
-
     return this.selectedLogin;
   }
 }

@@ -35,6 +35,7 @@ export class ResetpasswordComponent implements OnInit {
       return;
     }else{
       console.log(login);
+      this.router.navigateByUrl('/secretanswer');
       this.usuarioLoginService.allowPasswordChange(login).subscribe( data => {
         console.log(data);
       });

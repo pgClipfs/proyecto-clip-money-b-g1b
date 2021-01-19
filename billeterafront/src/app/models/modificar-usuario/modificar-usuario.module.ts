@@ -28,4 +28,5 @@ export class ModificarUsuarioModule {
   codigo_postal: number; 
   ciudad: string;
   estado : boolean;
+  preguntasecreta: string;
 }
