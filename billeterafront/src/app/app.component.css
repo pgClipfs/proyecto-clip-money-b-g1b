@@ -215,6 +215,17 @@ form#register-form-myaccount {
     margin-bottom: 0;
     width: 80%;
 }
+.nav-item, .nav-link, li.nav-item.p-2{
+    background-color: #fff;
+}
+#nav-resgister, #nav-login{
+    background-color: #fff;
+
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    
+}
 .form-group{
     margin-bottom: 0.3rem;
 }
