@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Claims;
+using System.Drawing;
 
 namespace Billetera_Virtual.Models
 {
@@ -100,8 +101,8 @@ namespace Billetera_Virtual.Models
                     string dni = dr.GetString(3);
                     string fechaNacimiento = dr.GetString(6);
                     string cuil_cuit = dr.GetString(7);
-
-                    p = new Usuario(id, nombre, apellido, dni, fechaNacimiento, cuil_cuit);
+                    string telefono = dr.GetString(10);
+                    p = new Usuario(id, nombre, apellido, dni, fechaNacimiento, cuil_cuit, telefono);
                 }
                 dr.Close();
             }
@@ -115,6 +116,10 @@ namespace Billetera_Virtual.Models
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
+                var codeBitmap = new Bitmap(p.Frente_dni);
+                Image frenteDni = (Image)codeBitmap;
+                var codeBitmap2 = new Bitmap(p.Dorso_dni);
+                Image dorsoDni = (Image)codeBitmap;
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
@@ -126,6 +131,10 @@ namespace Billetera_Virtual.Models
                 comm.Parameters.Add(new SqlParameter("@fechaNacimiento", p.FechaNacimiento));
                 comm.Parameters.Add(new SqlParameter("@cuil_cuit", p.Cuil_Cuit));
                 comm.Parameters.Add(new SqlParameter("@Id", p.Id));
+                comm.Parameters.Add(new SqlParameter("@telefono", p.Telefono));
+                comm.Parameters.Add(new SqlParameter("@frente_dni", frenteDni));
+                comm.Parameters.Add(new SqlParameter("@dorso_dni", frenteDni));
+
 
                 comm.ExecuteNonQuery();
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -16,8 +17,11 @@ namespace Billetera_Virtual.Models
         private string fechaNacimiento;
         private string cuil_cuit;
         private string estado = "FALSE";
+        private string telefono;
+        private Bitmap frente_dni;
+        private Bitmap dorso_dni;
 
-        public Usuario(int id, string nombre, string apellido, string dni, string fechaNacimiento, string cuil_cuit)
+        public Usuario(int id, string nombre, string apellido, string dni, string fechaNacimiento, string cuil_cuit, string telefono)
         {
             this.id = id;
             this.nombre = nombre;
@@ -25,6 +29,7 @@ namespace Billetera_Virtual.Models
             this.dni = dni;
             this.fechaNacimiento = fechaNacimiento;
             this.cuil_cuit = cuil_cuit;
+            this.Telefono = telefono
         }
 
         public Usuario()
@@ -48,6 +53,8 @@ namespace Billetera_Virtual.Models
         public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
         public string Cuil_Cuit { get => cuil_cuit; set => cuil_cuit = value; }
         public string Estado { get => estado; set => estado = value; }
-
+        public Bitmap Frente_dni { get => frente_dni; set => frente_dni = value; }
+        public Bitmap Dorso_dni { get => dorso_dni; set => dorso_dni = value; }
+        public string Telefono { get => telefono; set => telefono = value; }
     }
 }
