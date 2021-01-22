@@ -27,11 +27,7 @@ namespace Billetera_Virtual.Models
         private Bitmap frente_dni;
         private Bitmap dorso_dni;
 
-<<<<<<< HEAD
         public Usuario(int id, string nombre, string apellido, string dni, string genero, DateTime fechaNacimiento, string cuil_cuit, string calle, string numero_de_calle, string barrio, string codigo_postal, string ciudad, string telefono)
-=======
-        public Usuario(int id, string nombre, string apellido, string dni, string fechaNacimiento, string cuil_cuit, string telefono)
->>>>>>> 70524f15f363bafe55878b8bef9cf4d2b52c9e46
         {
             this.id = id;
             this.nombre = nombre;
@@ -40,16 +36,12 @@ namespace Billetera_Virtual.Models
             this.genero = genero;
             this.fechaNacimiento = fechaNacimiento;
             this.cuil_cuit = cuil_cuit;
-<<<<<<< HEAD
             this.calle = calle;
             this.numero_de_calle = numero_de_calle;
             this.barrio = barrio;
             this.codigo_postal = codigo_postal;
             this.ciudad = ciudad;
             this.telefono = telefono;
-=======
-            this.Telefono = telefono
->>>>>>> 70524f15f363bafe55878b8bef9cf4d2b52c9e46
         }
 
         public Usuario()

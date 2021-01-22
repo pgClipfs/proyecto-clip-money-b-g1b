@@ -149,7 +149,6 @@ namespace Billetera_Virtual.Models
                     string nombre = dr.GetString(1);
                     string apellido = dr.GetString(2);
                     string dni = dr.GetString(3);
-<<<<<<< HEAD
                     string genero = dr.GetString(4);
                     DateTime fechaNacimiento = dr.GetDateTime(5);
                     string cuil_cuit = dr.GetString(6);
@@ -161,12 +160,6 @@ namespace Billetera_Virtual.Models
                     string telefono = dr.GetString(12);
 
                     p = new Usuario(id, nombre, apellido, dni, genero, fechaNacimiento, cuil_cuit, calle, numero_de_calle, barrio, codigo_postal, ciudad, telefono);
-=======
-                    string fechaNacimiento = dr.GetString(6);
-                    string cuil_cuit = dr.GetString(7);
-                    string telefono = dr.GetString(10);
-                    p = new Usuario(id, nombre, apellido, dni, fechaNacimiento, cuil_cuit, telefono);
->>>>>>> 70524f15f363bafe55878b8bef9cf4d2b52c9e46
                 }
                 dr.Close();
             }
@@ -184,10 +177,6 @@ namespace Billetera_Virtual.Models
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
-                var codeBitmap = new Bitmap(p.Frente_dni);
-                Image frenteDni = (Image)codeBitmap;
-                var codeBitmap2 = new Bitmap(p.Dorso_dni);
-                Image dorsoDni = (Image)codeBitmap;
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
@@ -200,7 +189,6 @@ namespace Billetera_Virtual.Models
                 comm.Parameters.Add(new SqlParameter("@genero", p.Genero));
                 comm.Parameters.Add(new SqlParameter("@fechaNacimiento", p.FechaNacimiento));
                 comm.Parameters.Add(new SqlParameter("@cuil_cuit", p.Cuil_Cuit));
-<<<<<<< HEAD
                 comm.Parameters.Add(new SqlParameter("@calle", p.Calle));
                 comm.Parameters.Add(new SqlParameter("@numero_de_calle", p.Numero_de_calle));
                 comm.Parameters.Add(new SqlParameter("@barrio", p.Barrio));
@@ -209,12 +197,6 @@ namespace Billetera_Virtual.Models
                 comm.Parameters.Add(new SqlParameter("@telefono",p.Telefono));
               /*  comm.Parameters.Add(new SqlParameter("@frente_dni", frenteDni));
                 comm.Parameters.Add(new SqlParameter("@dorso_dni", dorsoDni));*/
-=======
-                comm.Parameters.Add(new SqlParameter("@Id", p.Id));
-                comm.Parameters.Add(new SqlParameter("@telefono", p.Telefono));
-                comm.Parameters.Add(new SqlParameter("@frente_dni", frenteDni));
-                comm.Parameters.Add(new SqlParameter("@dorso_dni", frenteDni));
->>>>>>> 70524f15f363bafe55878b8bef9cf4d2b52c9e46
 
 
                 comm.ExecuteNonQuery();
