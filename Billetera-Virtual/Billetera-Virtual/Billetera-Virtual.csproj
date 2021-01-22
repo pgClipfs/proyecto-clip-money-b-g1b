@@ -140,17 +140,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\billeteraController.cs" />
+    <Compile Include="Controllers\billeteraController1.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TokenGenerator.cs" />
     <Compile Include="Controllers\TokenValidationHandler.cs" />
+    <Compile Include="Controllers\TransaccionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\UsuarioLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuxClass.cs" />
     <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Billetera.cs" />
     <Compile Include="Models\CuentaDestino.cs" />
+    <Compile Include="Models\detalleTransaccion.cs" />
+    <Compile Include="Models\gestionarBilletera.cs" />
+    <Compile Include="Models\GestionarTransaccion.cs" />
     <Compile Include="Models\GestorLogin.cs" />
     <Compile Include="Models\GestorUsuario.cs" />
     <Compile Include="Models\LoginUsuario.cs" />

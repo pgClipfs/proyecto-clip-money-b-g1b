@@ -79,6 +79,56 @@ namespace Billetera_Virtual.Models
 
         }
 
+        public Usuario ObtenerIdPorLogin(LoginUsuario uloginRequest)
+        {
+            string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+            var usuario = new Usuario();
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("obtener_usuarioLogin", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@email", uloginRequest.Email));
+                comm.Parameters.Add(new SqlParameter("@password", uloginRequest.Password));
+
+                SqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    int id = dr.GetInt32(0);
+
+                    usuario = new Usuario(id);
+                }
+                dr.Close();
+
+            }
+            return usuario;
+        }
+
+        public bool ValidarRecuperoContraseña(LoginUsuario uloginRequest)
+        {
+            string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+            bool result = false;
+
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("obtener_respuestaSecreta", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@email", uloginRequest.Email));
+
+                SqlDataReader dr = comm.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
 
         public Usuario ObtenerPorId(int id)
         {
@@ -99,10 +149,24 @@ namespace Billetera_Virtual.Models
                     string nombre = dr.GetString(1);
                     string apellido = dr.GetString(2);
                     string dni = dr.GetString(3);
+<<<<<<< HEAD
+                    string genero = dr.GetString(4);
+                    DateTime fechaNacimiento = dr.GetDateTime(5);
+                    string cuil_cuit = dr.GetString(6);
+                    string calle = dr.GetString(7);
+                    string numero_de_calle = dr.GetString(8);
+                    string barrio = dr.GetString(9);
+                    string codigo_postal = dr.GetString(10);
+                    string ciudad = dr.GetString(11);
+                    string telefono = dr.GetString(12);
+
+                    p = new Usuario(id, nombre, apellido, dni, genero, fechaNacimiento, cuil_cuit, calle, numero_de_calle, barrio, codigo_postal, ciudad, telefono);
+=======
                     string fechaNacimiento = dr.GetString(6);
                     string cuil_cuit = dr.GetString(7);
                     string telefono = dr.GetString(10);
                     p = new Usuario(id, nombre, apellido, dni, fechaNacimiento, cuil_cuit, telefono);
+>>>>>>> 70524f15f363bafe55878b8bef9cf4d2b52c9e46
                 }
                 dr.Close();
             }
@@ -113,6 +177,10 @@ namespace Billetera_Virtual.Models
         public void ModificarUsuario(Usuario p)
         {
             string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+          /*  var codeBitmap = new Bitmap(p.Frente_dni);
+            Image frenteDni = (Image)codeBitmap;
+            var codeBitmap2 = new Bitmap(p.Dorso_dni);
+            Image dorsoDni = (Image)codeBitmap2;*/
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
@@ -125,15 +193,28 @@ namespace Billetera_Virtual.Models
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "update_Usuario";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@id", p.Id));
                 comm.Parameters.Add(new SqlParameter("@nombre", p.Nombre));
                 comm.Parameters.Add(new SqlParameter("@apellido", p.Apellido));
                 comm.Parameters.Add(new SqlParameter("@dni", p.Dni));
+                comm.Parameters.Add(new SqlParameter("@genero", p.Genero));
                 comm.Parameters.Add(new SqlParameter("@fechaNacimiento", p.FechaNacimiento));
                 comm.Parameters.Add(new SqlParameter("@cuil_cuit", p.Cuil_Cuit));
+<<<<<<< HEAD
+                comm.Parameters.Add(new SqlParameter("@calle", p.Calle));
+                comm.Parameters.Add(new SqlParameter("@numero_de_calle", p.Numero_de_calle));
+                comm.Parameters.Add(new SqlParameter("@barrio", p.Barrio));
+                comm.Parameters.Add(new SqlParameter("@codigo_postal",p.Codigo_postal));
+                comm.Parameters.Add(new SqlParameter("@ciudad",p.Ciudad));
+                comm.Parameters.Add(new SqlParameter("@telefono",p.Telefono));
+              /*  comm.Parameters.Add(new SqlParameter("@frente_dni", frenteDni));
+                comm.Parameters.Add(new SqlParameter("@dorso_dni", dorsoDni));*/
+=======
                 comm.Parameters.Add(new SqlParameter("@Id", p.Id));
                 comm.Parameters.Add(new SqlParameter("@telefono", p.Telefono));
                 comm.Parameters.Add(new SqlParameter("@frente_dni", frenteDni));
                 comm.Parameters.Add(new SqlParameter("@dorso_dni", frenteDni));
+>>>>>>> 70524f15f363bafe55878b8bef9cf4d2b52c9e46
 
 
                 comm.ExecuteNonQuery();

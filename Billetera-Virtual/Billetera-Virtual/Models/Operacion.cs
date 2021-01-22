@@ -16,7 +16,8 @@ namespace Billetera_Virtual.Models
             this.tipoDeOperacion = tipoDeOperacion;
         }
 
-        public int Id { get => id; }
+
+        public int Id { get => id; set => id = value; }
         public string TipoDeOperacion { get => tipoDeOperacion; set => tipoDeOperacion = value; }
     }
 }
