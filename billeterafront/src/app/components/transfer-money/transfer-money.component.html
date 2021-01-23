@@ -8,9 +8,13 @@
 
         <form class="form">
 
-            <button class="btn btn-primary mt-3 mb-3" > Transferencia</button>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" id="transfer-form" class="form" #formulario="ngForm">
             
+            <button class="btn btn-primary mt-3 mb-3" [routerLink]="[ '/transfermoney']" > Transferencia</button>
+        
             <button class="btn btn-primary mt-3 mb-3" > Pagar </button>
+            
+            </form>
         </form>
     </div>
 </div>

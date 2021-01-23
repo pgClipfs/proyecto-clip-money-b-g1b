@@ -39,12 +39,6 @@ export class ResetpasswordComponent implements OnInit {
       this.usuarioLoginService.allowPasswordChange(login).subscribe( data => {
         console.log(data);
       });
-      /*
-      if (data){
-        this.router.navigateByUrl('/secretanswer');
-      }else{
-        alert("El correo suministrado no existe en el registro...")
-      }*/
     }
     return this.selectedLogin;
   }

@@ -17,6 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
 import { UsuarioLoginService } from './services/usuario-login.service';
 import { TransferMoneyComponent } from './components/transfer-money/transfer-money.component';
+import { TransferComponent } from './components/transfer/transfer.component';
+import { MainComponent } from './components/main/main.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { TransferMoneyComponent } from './components/transfer-money/transfer-mon
     ResetpasswordComponent,
     SecretanswerComponent,
     TransferMoneyComponent,
+    TransferComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

@@ -37,10 +37,8 @@ export class SecretanswerComponent implements OnInit {
         this.router.navigateByUrl('/secretanswer').then(() => {
           window.location.reload();
         });
-
       }
     return this.selectedLogin;
   }
   }
-
 }

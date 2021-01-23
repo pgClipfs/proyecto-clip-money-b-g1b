@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="segment">
+        <div class="register-img">
+            <img class="logo" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
+                alt="Billetera virtual" />
+            <h1 class="page-title">Ingrese datos requeridos</h1>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit(selectedTransfer)" id="transfer-form" class="form" #formulario="ngForm">
+     
+            <input formControlName="cvu" id="cvu" [(ngModel)]="selectedTransfer.cvu"
+                class="form-control" placeholder="CVU Destino" ngModel required>
+            <div *ngIf="f.cvu.touched && f.cvu.invalid" class="alert alert-danger">
+                <div *ngIf="f.cvu.errors.required" class="error">El CVU es requerido</div>
+            </div>
+
+
+            <input formControlName="monto" id="monto" [(ngModel)]="selectedTransfer.monto"
+                class="form-control" placeholder="Monto" ngModel required>
+            <div *ngIf="f.monto.touched && f.monto.invalid" class="alert alert-danger">
+                <div *ngIf="f.monto.errors.required" class="error">El monto es requerido</div>
+            </div>
+
+            <input formControlName="descripcion" id="descripcion" [(ngModel)]="selectedTransfer.descripcion"
+                class="form-control" placeholder="Descripcion" ngModel required>
+            <div *ngIf="f.descripcion.touched && f.descripcion.invalid" class="alert alert-danger">
+                <div *ngIf="f.descripcion.errors.required" class="error">La descripcion es requerida</div>
+            </div>
+            
+            <button class="btn btn-primary mt-3 mb-3" type="submit" [disabled]="!form.valid">
+                Transferir
+            </button>
+
+        </form>
+    </div>
+</div>

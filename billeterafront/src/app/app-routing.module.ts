@@ -7,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
 import { TransferMoneyComponent } from './components/transfer-money/transfer-money.component';
+import { TransferComponent } from './components/transfer/transfer.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'micuenta', component: MyaccountComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'secretanswer', component: SecretanswerComponent},
-  { path: 'transfer', component: TransferMoneyComponent},
+  { path: 'transfermoney', component: TransferMoneyComponent},
+  { path: 'transfer', component: TransferComponent},
+  { path: 'main', component: MainComponent},
   { path: '**', redirectTo: '' },
 ];
 
@@ -24,3 +28,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

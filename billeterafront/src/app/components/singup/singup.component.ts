@@ -42,7 +42,6 @@ export class SingupComponent implements OnInit {
     }
     else {
       this.usuarioService.onUpdateUsuario(usuario).subscribe(resp => {
-
       })
     }
     console.log(this.selectedUsuario);
