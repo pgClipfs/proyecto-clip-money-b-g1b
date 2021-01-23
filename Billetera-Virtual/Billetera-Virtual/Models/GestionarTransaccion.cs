@@ -33,7 +33,7 @@ namespace Billetera_Virtual.Models
 
         }
 
-        public Transaccion buildTransaccion(AuxClass auxClass) { 
+        public void buildTransaccion(AuxClass auxClass) { 
          Billetera billeteraCuentaDestino = new Billetera();
             billeteraCuentaDestino = getbyCvu(auxClass.Cvu);
             int idBilletera = getPorIdCuenta(auxClass.IdCuenta);
@@ -47,13 +47,9 @@ namespace Billetera_Virtual.Models
                 gBilletera.ModificarBilletera(propia);
                 gBilletera.ModificarBilletera(destino);
            
-            return transaccion;
+            
             }
-            else
-            {
-                return null;
-            }
-
+            
 
         }
 
@@ -127,5 +123,39 @@ namespace Billetera_Virtual.Models
             }
             return p;
         }
+        public Transaccion ObtenerTransaccion(int id)
+        {
+            gestionarBilletera gBilletera = new gestionarBilletera();
+            Billetera billetera = new Billetera();
+            int idBilletera = gBilletera.getIdBilleteraByIdCuenta(id);
+            Transaccion p = null;
+            string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("selectTransaccionById", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@id", idBilletera));
+
+                SqlDataReader dr = comm.ExecuteReader();
+                if (dr.Read())
+                {
+                    decimal monto = dr.GetDecimal(0);
+                    string descripcio = dr.GetString(1);
+                    string nombre = dr.GetString(2);
+                    string nombreDestino = dr.GetString(3);
+                    string tipoOperacion = dr.GetString(4);
+
+
+                    p = new Transaccion(monto, descripcio, nombre, nombreDestino, tipoOperacion);
+                }
+                dr.Close();
+            }
+            return p;
+
+
+        }
+
     }
 }

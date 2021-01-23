@@ -3,7 +3,7 @@
         <div class="col-2 px-1 bg-light position-fixed pt-5 text" id="sticky-sidebar">
             <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white p-2 mt-5">
                 <a href="./" class="nav-link text-dark">Cuenta</a>
-                <a href="./" class="nav-link text-dark">Transferencia</a>
+                <a href="./transaccion" class="nav-link text-dark">Transferencia</a>
                 <a href="./" class="nav-link text-dark">Pagos</a>
                 <a href="./" class="nav-link text-dark">Tarjetas</a>
                 <a href="./" class="nav-link text-dark">Dólares</a>
@@ -18,14 +18,14 @@
             <tr>
                 <th scope="col p-2">CBU</th>
                 <th scope="col p-2">Alias</th>
-                <th scope="col p-2">Saldo disponible</th>
+                <th scope="col p-2 ">Saldo diponible</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>002476543930093</td>
-                <td>TECLA.HORA.ROMA</td>
-                <td>$15000</td>
+                <td >{{billeteraModelsModule.Cvu}}</td>
+                <td >{{billeteraModelsModule.Alias}}</td>
+                <td >{{billeteraModelsModule.Saldo}}</td>
             </tr>
         </tbody>
     </table>

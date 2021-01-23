@@ -1,22 +1,22 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SaldoModelsModule } from '../models/saldo-models/saldo-models.module';
+import { BilleteraModule } from '../models/billetera/billetera.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BilleteraMainService {
-  url="https://localhost:44300/api/consultaSaldo";
+  url="https://localhost:44300/api/billetera";
 
 
   constructor(private http:HttpClient) {
     console.log("consultaSaldo service is running");
 
   }
-  getSaldo(id: number):Observable<SaldoModelsModule>{
+  getSaldo(id: number):Observable<BilleteraModule>{
     let header = new HttpHeaders().set('Content-Type','application/json');
-    return this.http.post<SaldoModelsModule>(this.url, id);
+    return this.http.get<BilleteraModule>(this.url + '/'+ id);
 
 }
 }

@@ -13,6 +13,9 @@ namespace Billetera_Virtual.Models
         private int id_operacion;
         private decimal monto;
         private string descripcion;
+        private string nombreBilletera;
+        private string nombreBilleteraDestino;
+        private string operacion;
 
 
         public Transaccion(int id, int id_billetera, int id_cuentaDestino, int id_operacion)
@@ -39,12 +42,24 @@ namespace Billetera_Virtual.Models
            
         }
 
+        public Transaccion(decimal monto, string descripcion, string nombreBilletera, string nombreBilleteraDestino, string operacion)
+        {
+            this.monto = monto;
+            this.descripcion = descripcion;
+            this.nombreBilletera = nombreBilletera;
+            this.nombreBilleteraDestino = nombreBilleteraDestino;
+            this.operacion = operacion;
+        }
+
         public int Id { get => id; set => id = value; }
         public int Id_billetera { get => id_billetera; set => id_billetera = value; }
         public int Id_cuentaDestino { get => id_cuentaDestino; set => id_cuentaDestino = value; }
         public int Id_operacion { get => id_operacion; set => id_operacion = value; }
         public decimal Monto { get => monto; set => monto = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
+        public string NombreBilletera { get => nombreBilletera; set => nombreBilletera = value; }
+        public string NombreBilleteraDestino { get => nombreBilleteraDestino; set => nombreBilleteraDestino = value; }
+        public string Operacion { get => operacion; set => operacion = value; }
 
     }
 }

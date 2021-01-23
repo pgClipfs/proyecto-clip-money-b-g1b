@@ -18,6 +18,9 @@ import { SecretanswerComponent } from './components/secretanswer/secretanswer.co
 import { UsuarioLoginService } from './services/usuario-login.service';
 import { BilleteraMainService } from './services/billetera-main.service';
 import { MainComponent } from './components/main/main.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { AuthService } from './services/auth.service';
+import { TranferenciaService } from './services/tranferencia.service';
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { MainComponent } from './components/main/main.component';
     MyaccountComponent,
     ResetpasswordComponent,
     SecretanswerComponent,
-    MainComponent
+    MainComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ import { MainComponent } from './components/main/main.component';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [UsuarioService, UsuarioLoginService, BilleteraMainService],
+  providers: [UsuarioService, UsuarioLoginService, BilleteraMainService, AuthService, TranferenciaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

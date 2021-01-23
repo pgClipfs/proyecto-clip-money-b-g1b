@@ -201,6 +201,10 @@ a {
     font-size: 10px;
 }
 
+.nav.flex-column.flex-nowrap.vh-100.overflow-auto.text-white.p-2.mt-5 {
+    background-color: #9ac1f757;
+}
+
 @media (min-width: 576px) {}
 
 @media (min-width: 768px) {
