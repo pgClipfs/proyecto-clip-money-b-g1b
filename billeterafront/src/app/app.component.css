@@ -89,7 +89,7 @@ img.logo {
     display: block;
 }
 
-.segment-myaccount {
+.segment-myaccount, .segment-transaction {
     width: 50%;
     display: block;
     margin: 2%;
@@ -203,6 +203,13 @@ a {
 
 .nav.flex-column.flex-nowrap.vh-100.overflow-auto.text-white.p-2.mt-5 {
     background-color: #9ac1f757;
+}
+div#main {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (min-width: 576px) {}

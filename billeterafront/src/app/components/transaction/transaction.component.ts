@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { TransactionModule } from 'src/app/models/transaction/transaction.module';
 import { AuxClassModule } from 'src/app/models/aux-class/aux-class.module';
 import { TranferenciaService } from 'src/app/services/tranferencia.service';
 
@@ -11,11 +10,12 @@ import { TranferenciaService } from 'src/app/services/tranferencia.service';
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
-  styleUrls: ['./transaction.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class TransactionComponent implements OnInit {
 
   public aux: AuxClassModule = new AuxClassModule();
+  //diferencia con singupxej crea usuarios/deberiamos crear auxs?
   form: FormGroup = new FormGroup({});
   constructor(private router: Router, private fb: FormBuilder, private transferencia : TranferenciaService) { }
 
@@ -40,12 +40,24 @@ export class TransactionComponent implements OnInit {
     }
     this.aux = new AuxClassModule();
     this.aux.idCuenta = JSON.parse(localStorage.getItem('id'));
-    console.log(this.aux);
-    this.transferencia.createTransaction(aux);
+    //console.log(this.aux);
+    this.transferencia.createTransaction(aux).subscribe(data => {
+    console.log(data);
+    alert('la operacion fue exitosa');
+    this.router.navigateByUrl('/main');
+    });
 
 
     return this.aux;
   }
+
+  // this.aux = new AuxClassModule();
+  //   this.aux.idCuenta = JSON.parse(localStorage.getItem('id'));
+  //   this.transferencia.createTransaction(aux).subscribe(data => {
+     
+  //     console.log(data);
+   
+  //   });
 }
 
 
