@@ -19,17 +19,19 @@ export class TranferenciaService {
 
   }
   createTransaction(aux: AuxClassModule): Observable<any> {
+    // let header = new HttpHeaders().set('Content-Type', 'application/json');
+    // console.log(aux);
+
+    // return this.http.post<any>(this.url, aux);
     let header = new HttpHeaders().set('Content-Type', 'application/json');
     console.log(this.url+ aux);
     return this.http.post<any>(this.url, aux);
 
-
   }
 
-  // createTransaction(aux: AuxClassModule): Observable<any> {
-  //   let header = new HttpHeaders().set('Content-Type', 'application/json');
-  //   console.log(this.url+ aux);
-  //   return this.http.post<any>(this.url, aux);
-
-  // }
+  getTransaccion(id: number): Observable<TransactionModule[]> {
+    let header = new HttpHeaders().set('Content-Type', 'application/json');
+    
+    return this.http.get<TransactionModule[]>(this.url + '/'+ id);
+  }
 }

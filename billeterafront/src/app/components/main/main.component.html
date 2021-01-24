@@ -10,7 +10,7 @@
                 <a href="./" class="nav-link text-dark">Bitcoin</a>
             </div>
         </div>
-<div class="col-7 offset-2 mt-5 pt-5" id="main">
+<div class="col-9 offset-2 mt-5 pt-5" id="main">
 <div class="cuenta">
    <h3 class="title-home">Cuenta</h3>
     <table class="table">
@@ -35,20 +35,23 @@
      <table class="table">
          <thead>
              <tr>
-                 <th scope="col p-2">Fecha</th>
-                 <th scope="col p-2">Hora</th>
-                 <th scope="col p-2">Descripcion</th>
+                 <th scope="col p-2">Mi billetera</th>
+                 <th scope="col p-2">Destino</th>
+                 <th scope="col p-2">Tipo de Operación</th>
+                 <th scope="col p-2">Descripción</th>
                  <th scope="col p-2">Monto</th>
+                 
              </tr>
          </thead>
-         <tbody>
+         <tbody  *ngFor="let transaccion of trasaccionModelModulo" >
              <tr>
-                 <td>10/10/2020</td>
-                 <td>15:20</td>
-                 <td>Extracción</td>
-                 <td>$1500</td>
+                 <td>{{transaccion.NombreBilletera}}</td>
+                 <td>{{transaccion.NombreBilleteraDestino}}</td>
+                <td>{{transaccion.Operacion}}</td>
+                <td>{{transaccion.Descripcion}}</td>
+                 <td>{{transaccion.Monto}}</td> 
              </tr>
-             <tr>
+            <!--  <tr>*ngFor="let transaccion of trasaccionModelModulo"
                  <td>10/10/2020</td>
                  <td>16:30</td>
                  <td>Depósito</td>
@@ -59,7 +62,7 @@
                  <td>20:05</td>
                  <td>Depósito</td>
                  <td>$7000</td>
-             </tr>
+             </tr> -->
          </tbody>
      </table>
  </div>

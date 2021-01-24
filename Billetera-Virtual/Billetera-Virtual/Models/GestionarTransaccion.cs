@@ -9,6 +9,7 @@ namespace Billetera_Virtual.Models
 {
     public class GestionarTransaccion
     {
+        public int size = 0;
         public int AgregarTransaccion(Transaccion nuevo)
         {
             string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
@@ -123,12 +124,15 @@ namespace Billetera_Virtual.Models
             }
             return p;
         }
-        public Transaccion ObtenerTransaccion(int id)
+        public Transaccion[] ObtenerTransaccion(int id)
         {
-            gestionarBilletera gBilletera = new gestionarBilletera();
+            
+            int i = 0;
+           gestionarBilletera gBilletera = new gestionarBilletera();
             Billetera billetera = new Billetera();
             int idBilletera = gBilletera.getIdBilleteraByIdCuenta(id);
-            Transaccion p = null;
+            Transaccion[] ps = null;
+
             string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
@@ -139,20 +143,32 @@ namespace Billetera_Virtual.Models
                 comm.Parameters.Add(new SqlParameter("@id", idBilletera));
 
                 SqlDataReader dr = comm.ExecuteReader();
-                if (dr.Read())
+                while (dr.Read())
                 {
-                    decimal monto = dr.GetDecimal(0);
-                    string descripcio = dr.GetString(1);
-                    string nombre = dr.GetString(2);
-                    string nombreDestino = dr.GetString(3);
-                    string tipoOperacion = dr.GetString(4);
-
-
-                    p = new Transaccion(monto, descripcio, nombre, nombreDestino, tipoOperacion);
+                    size = size + 1;
                 }
                 dr.Close();
+                ps = new Transaccion[size];
+                SqlDataReader dr1 = comm.ExecuteReader();
+                while (dr1.Read()){
+                    Transaccion p = null;
+                    //foreach(int element in fibNumbers)
+                    decimal monto = dr1.GetDecimal(0);
+                    string descripcio = dr1.GetString(1);
+                    string nombre = dr1.GetString(2);
+                    string nombreDestino = dr1.GetString(3);
+                    string tipoOperacion = dr1.GetString(4);
+                    p = new Transaccion(monto, descripcio, nombre, nombreDestino, tipoOperacion);
+                    if(p != null)
+                    {
+                        ps[i] = p;
+                    }
+                    i = i + 1;
+                    
+                }
+                dr1.Close();
             }
-            return p;
+            return ps;
 
 
         }

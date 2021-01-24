@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Windows 10\Documents\GitHub\proyecto-clip-money-b-g1b\billeterafront\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\Users\Windows 10\Downloads\proyecto-clip-money-b-g1b-Develop-3sprint2\billeterafront\src\polyfills.ts */"hN/g");
 
 
 /***/ }),
