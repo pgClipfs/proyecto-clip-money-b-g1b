@@ -24,8 +24,8 @@ namespace Billetera_Virtual.Models
         private string ciudad;
         private string estado = "FALSE";
         private string telefono;
-        private Bitmap frente_dni;
-        private Bitmap dorso_dni;
+        //private Bitmap frente_dni;
+        //private Bitmap dorso_dni;
 
         public Usuario(int id, string nombre, string apellido, string dni, string genero, DateTime fechaNacimiento, string cuil_cuit, string calle, string numero_de_calle, string barrio, string codigo_postal, string ciudad, string telefono)
         {
@@ -77,8 +77,8 @@ namespace Billetera_Virtual.Models
         public string Codigo_postal { get => codigo_postal; set => codigo_postal = value; }
         public string Ciudad { get => ciudad; set => ciudad = value; }
         public string Estado { get => estado; set => estado = value; }
-        public Bitmap Frente_dni { get => frente_dni; set => frente_dni = value; }
-        public Bitmap Dorso_dni { get => dorso_dni; set => dorso_dni = value; }
+        //public Bitmap Frente_dni { get => frente_dni; set => frente_dni = value; }
+        //public Bitmap Dorso_dni { get => dorso_dni; set => dorso_dni = value; }
         public string Telefono { get => telefono; set => telefono = value; }
     }
 }

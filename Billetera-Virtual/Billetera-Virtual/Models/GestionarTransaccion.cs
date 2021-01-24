@@ -9,6 +9,7 @@ namespace Billetera_Virtual.Models
 {
     public class GestionarTransaccion
     {
+        public int size = 0;
         public int AgregarTransaccion(Transaccion nuevo)
         {
             string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
@@ -33,7 +34,7 @@ namespace Billetera_Virtual.Models
 
         }
 
-        public Transaccion buildTransaccion(AuxClass auxClass) { 
+        public void buildTransaccion(AuxClass auxClass) { 
          Billetera billeteraCuentaDestino = new Billetera();
             billeteraCuentaDestino = getbyCvu(auxClass.Cvu);
             int idBilletera = getPorIdCuenta(auxClass.IdCuenta);
@@ -47,13 +48,9 @@ namespace Billetera_Virtual.Models
                 gBilletera.ModificarBilletera(propia);
                 gBilletera.ModificarBilletera(destino);
            
-            return transaccion;
+            
             }
-            else
-            {
-                return null;
-            }
-
+            
 
         }
 
@@ -127,5 +124,54 @@ namespace Billetera_Virtual.Models
             }
             return p;
         }
+        public Transaccion[] ObtenerTransaccion(int id)
+        {
+            
+            int i = 0;
+           gestionarBilletera gBilletera = new gestionarBilletera();
+            Billetera billetera = new Billetera();
+            int idBilletera = gBilletera.getIdBilleteraByIdCuenta(id);
+            Transaccion[] ps = null;
+
+            string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("selectTransaccionById", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@id", idBilletera));
+
+                SqlDataReader dr = comm.ExecuteReader();
+                while (dr.Read())
+                {
+                    size = size + 1;
+                }
+                dr.Close();
+                ps = new Transaccion[size];
+                SqlDataReader dr1 = comm.ExecuteReader();
+                while (dr1.Read()){
+                    Transaccion p = null;
+                    //foreach(int element in fibNumbers)
+                    decimal monto = dr1.GetDecimal(0);
+                    string descripcio = dr1.GetString(1);
+                    string nombre = dr1.GetString(2);
+                    string nombreDestino = dr1.GetString(3);
+                    string tipoOperacion = dr1.GetString(4);
+                    p = new Transaccion(monto, descripcio, nombre, nombreDestino, tipoOperacion);
+                    if(p != null)
+                    {
+                        ps[i] = p;
+                    }
+                    i = i + 1;
+                    
+                }
+                dr1.Close();
+            }
+            return ps;
+
+
+        }
+
     }
 }

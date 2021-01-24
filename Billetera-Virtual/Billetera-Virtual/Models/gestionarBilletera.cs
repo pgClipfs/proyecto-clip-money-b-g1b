@@ -109,5 +109,27 @@ namespace Billetera_Virtual.Models
                 return saldo;
             }
         }
+        public int getIdBilleteraByIdCuenta(int idb)
+        {
+            string StrConn = ConfigurationManager.ConnectionStrings["BDBilletera"].ToString();
+            int id = 0;
+            using (SqlConnection conn = new SqlConnection(StrConn))
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand("billeteraSelectByIdCuenta", conn);
+                comm.CommandType = System.Data.CommandType.StoredProcedure;
+                comm.Parameters.Add(new SqlParameter("@id", idb));
+
+                SqlDataReader dr = comm.ExecuteReader();
+                if (dr.Read())
+                {
+                    id = dr.GetInt32(0);
+
+                }
+                dr.Close();
+                return id;
+            }
+        }
     }
 }

@@ -14,15 +14,20 @@ namespace Billetera_Virtual.Controllers
         // POST: api/transaccion
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPost]
-        public Transaccion Post(AuxClass auxClass)
+        public void Post(AuxClass auxClass)
         {
-            Transaccion id;
-            Transaccion transaccion = null;
             GestionarTransaccion gTransaccion = new GestionarTransaccion();
-            id = gTransaccion.buildTransaccion(auxClass);
-           // transaccion = new Transaccion(id);
-            return id;
+            gTransaccion.buildTransaccion(auxClass);
         }
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        public Transaccion[] Get(int id)
+        {
+            GestionarTransaccion gUsuario = new GestionarTransaccion();
+            return gUsuario.ObtenerTransaccion(id);
+        }
+
 
 
 
