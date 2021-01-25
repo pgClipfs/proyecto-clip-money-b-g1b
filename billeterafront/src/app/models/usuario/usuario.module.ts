@@ -17,7 +17,8 @@ export class UsuarioModule {
   email: string;
   password: string;
   confirm_password: string;
-  fechaNacimiento: string;
+  fechaNacimiento: Date;
   cuil_cuit: string;
   estado : boolean;
+  telefono: string;
 }

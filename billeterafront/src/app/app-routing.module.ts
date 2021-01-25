@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
+import { MainComponent } from './components/main/main.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +16,10 @@ const routes: Routes = [
   { path: 'micuenta', component: MyaccountComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'secretanswer', component: SecretanswerComponent},
+  { path: 'main', component: MainComponent},
+  { path: 'transaccion', component: TransactionComponent},
+
+  
   { path: '**', redirectTo: '' },
 ];
 

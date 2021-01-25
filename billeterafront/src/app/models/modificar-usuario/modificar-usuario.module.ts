@@ -18,9 +18,8 @@ export class ModificarUsuarioModule {
   confirm_password: string;
   dni: string;
   genero: string;
-  frente_dni: File;
-  dorso_dni: File;
-  fechaNacimiento: string;
+  telefono : string;
+  fechaNacimiento: Date;
   cuil_cuit: string;
   calle: string; 
   numero_de_calle: string;

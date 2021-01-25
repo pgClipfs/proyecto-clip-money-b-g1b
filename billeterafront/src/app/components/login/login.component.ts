@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       this.authService.getToken(login).subscribe(resp => {
         localStorage.setItem('token', resp);
         localStorage.setItem('login', JSON.stringify(login));
-        this.router.navigateByUrl('/micuenta');
+        this.router.navigateByUrl('/main');
         console.log(resp);
       },
         err => {

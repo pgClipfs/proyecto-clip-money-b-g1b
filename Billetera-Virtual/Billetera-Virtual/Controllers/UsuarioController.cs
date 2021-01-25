@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Routing;
 using Billetera_Virtual.Models;
 using System.Web.Http.Cors;
+using System.Drawing;
 
 namespace Billetera_Virtual.Controllers
 {

@@ -16,6 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
 import { UsuarioLoginService } from './services/usuario-login.service';
+import { BilleteraMainService } from './services/billetera-main.service';
+import { MainComponent } from './components/main/main.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { AuthService } from './services/auth.service';
+import { TranferenciaService } from './services/tranferencia.service';
 
 
 @NgModule({
@@ -30,6 +35,8 @@ import { UsuarioLoginService } from './services/usuario-login.service';
     MyaccountComponent,
     ResetpasswordComponent,
     SecretanswerComponent,
+    MainComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { UsuarioLoginService } from './services/usuario-login.service';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [UsuarioService, UsuarioLoginService],
+  providers: [UsuarioService, UsuarioLoginService, BilleteraMainService, AuthService, TranferenciaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

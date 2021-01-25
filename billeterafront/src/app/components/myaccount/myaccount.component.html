@@ -47,7 +47,12 @@
           <input type="text" [(ngModel)]="selectedUsuario.cuil_cuit" name="Cuil_Cuit" placeholder="Cuil-Cuit"
             maxlength="11" class="form-control" required>
         </div>
+        <div class="form-group">
+          <input type="text" name="telefono"
+            placeholder="Numero de telefono"  [(ngModel)]="selectedUsuario.telefono"class="form-control" required>
+        </div>
       </div>
+    
       <div class="segment-myaccount">
         <div class="form-group">
           <input type="text" [(ngModel)]="selectedUsuario.calle" name="calle" placeholder="Calle" class="form-control"

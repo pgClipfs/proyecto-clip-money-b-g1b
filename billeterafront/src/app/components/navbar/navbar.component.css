@@ -1,12 +1,37 @@
 #navbarlogo {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
 img.logo {
-  width: 30%;
-  display: block;
-  align-items: center;
-  margin: auto;
-  padding: 3%;
-  opacity: 0.7;
+    width: 50%;
+    display: block;
+    align-items: center;
+    margin: auto;
+    padding: 10%;
+    opacity: 0.7;
 }
+
+.navbar-collapse.collapsing .navbar-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -75%;
+    transition: all 0.2s ease;
+}
+
+.navbar-collapse.show .navbar-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    height: auto;
+    width: 50%;
+    transition: left 0.35s ease;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+li.nav-item.p-2 {
+    background-color: white;
+} 
