@@ -1,8 +1,6 @@
 <div class="container">
     <div class="segment">
         <div class="register-img">
-            <!-- <img class="logo" src="https://github.com/pgClipfs/proyecto-clip-money-b-g1b/blob/Develop-3sprint2/billeterafront/src/assets/images/logobitcoin.png?raw=true"
-                alt="Billetera virtual" /> -->
             <h1 class="page-title">Crea tu cuenta!</h1>
         </div>
         <form [formGroup]="form" (ngSubmit)="onSubmit(selectedUsuario)" id="register-form" class="form">
@@ -31,7 +29,7 @@
                         Password must be match.</div>
                 </div>
             </div>
-
+            
             <button class="btn btn-primary mt-3 mb-3 " type="submit" [disabled]="!form.valid">Crear Cuenta</button>
             <p class="text">¿Ya tienes una?</p><a href="/ingresar" class="link-text">Ingresar</a>
         </form>

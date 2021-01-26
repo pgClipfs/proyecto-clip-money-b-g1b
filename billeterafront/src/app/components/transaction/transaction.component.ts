@@ -18,6 +18,7 @@ export class TransactionComponent implements OnInit {
   public aux: AuxClassModule = new AuxClassModule();
   form: FormGroup = new FormGroup({});
   constructor(private router: Router, private fb: FormBuilder, private transferencia : TranferenciaService) { }
+  operaciones = ['transferencia', 'pago servicios', 'pago de tarjeta']
 
   ngOnInit(): void {
     let id = parseInt(localStorage.getItem('id'));
@@ -58,6 +59,7 @@ export class TransactionComponent implements OnInit {
 
     if ((saldo*1.1) <= this.aux.monto){
       alert('Saldo insuficiente');
+      window.location.reload();
     }
   }
 }

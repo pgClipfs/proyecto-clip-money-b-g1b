@@ -35,5 +35,5 @@ export class MyaccountComponent implements OnInit {
     this.route.navigateByUrl('');
     return this.selectedUsuario;
   }
-  
+
 }

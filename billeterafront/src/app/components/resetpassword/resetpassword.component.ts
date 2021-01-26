@@ -33,9 +33,9 @@ export class ResetpasswordComponent implements OnInit {
   public onSubmit(login: LoginUsuarioModule) {
     if (this.form.invalid) {
       return;
-    }else{
+    } else {
       console.log(login);
-      this.usuarioLoginService.allowPasswordChange(login).subscribe( data => {
+      this.usuarioLoginService.allowPasswordChange(login).subscribe(data => {
         console.log(data);
       });
       /*

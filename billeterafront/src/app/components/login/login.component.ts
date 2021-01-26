@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('login');
     localStorage.removeItem('id');
+    localStorage.removeItem('monto');
 
     this.form = this.fb.group({
       email: ['', [Validators.required]],
