@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
-import { UsuarioComponent } from './components/usuario/usuario.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SingupComponent } from './components/singup/singup.component';
@@ -15,6 +14,13 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SecretanswerComponent } from './components/secretanswer/secretanswer.component';
+import { UsuarioLoginService } from './services/usuario-login.service';
+import { BilleteraMainService } from './services/billetera-main.service';
+import { MainComponent } from './components/main/main.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { AuthService } from './services/auth.service';
+import { TranferenciaService } from './services/tranferencia.service';
 
 
 @NgModule({
@@ -23,12 +29,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    UsuarioComponent,
     HomeComponent,
     NavbarComponent,
     SingupComponent,
     MyaccountComponent,
     ResetpasswordComponent,
+    SecretanswerComponent,
+    MainComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService, UsuarioLoginService, BilleteraMainService, AuthService, TranferenciaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

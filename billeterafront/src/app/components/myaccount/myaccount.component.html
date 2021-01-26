@@ -1,26 +1,83 @@
 <div class="container">
-  <div class="register-segment">
-  <div class="register-img">
-    <h1 class="page-title" id="title-myaccount">Gracias por elegirnos</h1>
-    <p class="text-left"></p></div>
-
-      <form id="register-form" class="form" >
-        <div class="segment">
-          <input type="text" id="usuario" placeholder="Usuario" #usuario required>
-          <input  placeholder="Contraseña" type="password" maxlength = "8" #password required/>
-          <input type="email"  id="email"  placeholder="Email" #email required/>
-          <input type="text" id="name" placeholder="Nombre" #name required>
-          <input type="text" id="surname" placeholder="Apellido" #surname required>
+  <h1 class="page-title">Completá tus datos</h1>
+  <form id="register-form" class="form">
+    <div class="form-myaccount">
+      <div class="segment-myaccount">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.nombre" name="Nombre" placeholder="Nombre"
+            class="form-control" required>
         </div>
-        <div class="segment">
-
-          <input type="text" name="dni" pattern="[0-9]+" placeholder="dni" required="required" maxlength = "8"  required>
-          <input type="Date" id ="date" placeholder="Fecha de Nacimiento" #date required>
-          <input type="text" id="cuil-cuit" placeholder="Cuit - Cuil " maxlength="11"  pattern = "[0-9] *" #cuilcuit  required>
-          <button class="btn btn-primary mt-3">Enviar</button>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.apellido" name="Apellido" placeholder="Apellido"
+            class="form-control" required>
         </div>
-      </form>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.dni" name="Dni" placeholder="Nº DNI" maxlength="8"
+            class="form-control" pattern="[0-9]" required>
+        </div>
+        <div class="form-group">
+          <label for="frente-dni">Selecciona el género con el que te identificas</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" [(ngModel)]="selectedUsuario.genero" name="gender" id="female"
+              value="female" />
+            <label class="form-check-label" for="female">
+              Femenino
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" [(ngModel)]="selectedUsuario.genero" name="gender" id="male"
+              value="male">
+            <label class="form-check-label" for="male">
+              Masculino
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" [(ngModel)]="selectedUsuario.genero" name="gender" id="others"
+              value="others">
+            <label class="form-check-label" for="others">
+              Otro
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="date" [(ngModel)]="selectedUsuario.fechaNacimiento" name="fechaNacimiento"
+            placeholder="Fecha de Nacimiento" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.cuil_cuit" name="Cuil_Cuit" placeholder="Cuil-Cuit"
+            maxlength="11" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="telefono"
+            placeholder="Numero de telefono"  [(ngModel)]="selectedUsuario.telefono"class="form-control" required>
+        </div>
+      </div>
+    
+      <div class="segment-myaccount">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.calle" name="calle" placeholder="Calle" class="form-control"
+            required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.numero_de_calle" name="numero_de_calle"
+            placeholder="Numero de Calle" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.barrio" name="barrio" placeholder="Barrio"
+            class="form-control" required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.codigo_postal" name="codigo_postal"
+            placeholder="Codigo Postal" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="selectedUsuario.ciudad" name="ciudad" placeholder="Ciudad"
+            class="form-control" required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary mt-3" (click)="onSubmit(selectedUsuario)">Enviar</button>
+        </div>
+      </div>
     </div>
-    </div>
-
-<!-- formulario con todos los datos  -->
+  </form>
+</div>

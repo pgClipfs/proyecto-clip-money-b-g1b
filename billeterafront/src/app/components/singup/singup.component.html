@@ -1,23 +1,39 @@
 <div class="container">
-  <div class="register-segment">
-    <div class="register-img">
-      <img class="logo" id="logoBilletera" src="https://www.flaticon.es/svg/static/icons/svg/2506/2506463.svg"
-        alt="noseve" />
-      <h1 class="page-title">Crea tu cuenta!</h1>
+    <div class="segment">
+        <div class="register-img">
+            <!-- <img class="logo" src="https://github.com/pgClipfs/proyecto-clip-money-b-g1b/blob/Develop-3sprint2/billeterafront/src/assets/images/logobitcoin.png?raw=true"
+                alt="Billetera virtual" /> -->
+            <h1 class="page-title">Crea tu cuenta!</h1>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(selectedUsuario)" id="register-form" class="form">
+            <div class="form-group ">
+                <input formControlName="email" id="email" type="email" [(ngModel)]="selectedUsuario.email"
+                    class="form-control" placeholder="Email" ngModel email="true" required>
+                <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                    <div *ngIf="f.email.errors.required" class="error">Email is required.</div>
+                    <div *ngIf="f.email.invalid" class="error">Format email is required.</div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <input formControlName="password" id="password" type="password" [(ngModel)]="selectedUsuario.password"
+                    class="form-control" placeholder="Password">
+                <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.password.errors.required" class="error">Password is required.</div>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <input formControlName="confirm_password" id="confirm_password" type="password"
+                    [(ngModel)]="selectedUsuario.confirm_password" class="form-control" placeholder="Repetir password">
+                <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.confirm_password.errors.required" class="error">Password is required.</div>
+                    <div *ngIf="f.confirm_password.errors.confirmedValidator" class="error">Password and Confirm
+                        Password must be match.</div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary mt-3 mb-3 " type="submit" [disabled]="!form.valid">Crear Cuenta</button>
+            <p class="text">¿Ya tienes una?</p><a href="/ingresar" class="link-text">Ingresar</a>
+        </form>
     </div>
-    <form id="register-form" class="form">
-
-      <input type="email" [(ngModel)]="selectedUsuario.email" name="Email" placeholder="Email" class="form-control" required>
-
-      <input type="password" [(ngModel)]="selectedUsuario.password"  name="Password" placeholder="Contraseña" class="form-control" required>
-
-      <!--<input type="password" [(ngModel)]="selectedUsuario.Password"  name="Password" placeholder="Repite la contraseña" class="form-control" required>-->
-
-      <button class="btn btn-primary mt-3" (click)="onSubmit(selectedUsuario)">Crear cuenta</button>
-
-      <div class="login-segment">
-        <p class="text">¿Ya tienes una?</p><a href="/ingresar" class="text-style-1">Ingresar</a>
-      </div>
-    </form>
-  </div>
 </div>
