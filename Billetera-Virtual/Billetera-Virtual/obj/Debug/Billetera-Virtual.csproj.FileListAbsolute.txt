@@ -947,3 +947,5 @@ C:\Users\Windows 10\Downloads\proyecto-clip-money-b-g1b-Develop-3sprint2\Billete
 C:\Users\Windows 10\Downloads\proyecto-clip-money-b-g1b-Develop-3sprint2\Billetera-Virtual\Billetera-Virtual\obj\Debug\Billetera-Virtual.dll
 C:\Users\Windows 10\Downloads\proyecto-clip-money-b-g1b-Develop-3sprint2\Billetera-Virtual\Billetera-Virtual\obj\Debug\Billetera-Virtual.pdb
 C:\Users\Windows 10\Documents\GitHub\proyecto-clip-money-b-g1b\Billetera-Virtual\Billetera-Virtual\obj\Debug\Billetera-Virtual.csprojAssemblyReference.cache
+C:\Users\Eze Heredia\Documents\Proyecto Clip\proyecto-clip-money-b-g1b-Develop-3sprint2\proyecto-clip-money-b-g1b-Develop-3sprint2\Billetera-Virtual\Billetera-Virtual\obj\Debug\Billetera-Virtual.dll
+C:\Users\Eze Heredia\Documents\Proyecto Clip\proyecto-clip-money-b-g1b-Develop-3sprint2\proyecto-clip-money-b-g1b-Develop-3sprint2\Billetera-Virtual\Billetera-Virtual\obj\Debug\Billetera-Virtual.pdb
