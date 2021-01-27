@@ -18,7 +18,7 @@ export class TransactionComponent implements OnInit {
   public aux: AuxClassModule = new AuxClassModule();
   form: FormGroup = new FormGroup({});
   constructor(private router: Router, private fb: FormBuilder, private transferencia : TranferenciaService) { }
-  operaciones = ['transferencia', 'pago servicios', 'pago de tarjeta']
+  operaciones = ['transaccion', 'pago servicios', 'pago de tarjeta']
 
   ngOnInit(): void {
     let id = parseInt(localStorage.getItem('id'));
@@ -39,7 +39,8 @@ export class TransactionComponent implements OnInit {
       alert("Este formulario es invalido");
       return;
     }
- 
+    console.log(aux);
+    aux.operacion = 'transaccion';
     aux.idCuenta = JSON.parse(localStorage.getItem('id'));
     console.log(this.aux);
     this.transferencia.createTransaction(aux).subscribe(data => {

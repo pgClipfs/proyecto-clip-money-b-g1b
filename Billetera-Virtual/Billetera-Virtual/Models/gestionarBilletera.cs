@@ -90,19 +90,25 @@ namespace Billetera_Virtual.Models
 
                 comm.ExecuteNonQuery();
             }
-            if(p.Saldo < 0)
+            if(p.Saldo < -10000)
             {
                 operacion = "Retiro";
+                int idBilletera = getIdBilleteraByIdCuenta(p.Id);
+                int idOperacion = gestionarTransaccion.getoperacion(operacion);
+                string desp = "movimientos bancarios";
+                transaccion = new Transaccion(idBilletera, idBilletera, idOperacion, p.Saldo, desp);
+                gestionarTransaccion.AgregarTransaccion(transaccion);
             }
-            else
+            else if (p.Saldo == 3000)
             {
                 operacion = "Deposito";
+                int idBilletera = getIdBilleteraByIdCuenta(p.Id);
+                int idOperacion = gestionarTransaccion.getoperacion(operacion);
+                string desp = "movimientos bancarios";
+                transaccion = new Transaccion(idBilletera, idBilletera, idOperacion, p.Saldo, desp);
+                gestionarTransaccion.AgregarTransaccion(transaccion);
             }
-            int idBilletera = getIdBilleteraByIdCuenta(p.Id);
-            int idOperacion = gestionarTransaccion.getoperacion(operacion);
-            string desp = "movimientos bancarios";
-            transaccion = new Transaccion(idBilletera, idBilletera, idOperacion, p.Saldo, desp);
-            gestionarTransaccion.AgregarTransaccion(transaccion);
+            
         }
 
        public decimal getSaldo(int id)

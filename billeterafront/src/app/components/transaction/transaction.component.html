@@ -7,7 +7,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit(aux)" id="transfer-form" class="form" #formulario="ngForm">
 
       <select class="form-control">
-        <option (ngModel)="aux.operacion" [ngValue]="operacion" *ngFor="let operacion of operaciones"> {{operacion}}
+        <option [ngValue]="operacion.value" *ngFor="let operacion of operaciones" class="form-control"> {{operacion}}
         </option>
       </select>
 
